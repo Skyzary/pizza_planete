@@ -1,0 +1,28 @@
+@use '../../../styles/vars' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  width: 100%;
+}
+
+.label {
+  font-family: $font-family-sans;
+  font-size: $font-size-sm;
+  color: $text-color;
+  font-weight: 600;
+}
+
+.input {
+  padding: $spacing-sm;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: $font-size-base;
+  font-family: $font-family-sans;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}

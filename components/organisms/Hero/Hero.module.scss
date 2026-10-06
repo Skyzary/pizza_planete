@@ -1,0 +1,30 @@
+@use '../../../styles/vars' as *;
+
+.hero {
+  padding: $spacing-xxl $spacing-md;
+  text-align: center;
+  background-image: url('/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: rgba(#FFF3DD, 0.85); /* Light warm overlay to make text readable */
+  border-bottom: 2px solid $primary-color;
+  margin-bottom: $spacing-xl;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subtitle {
+  font-size: $font-size-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}

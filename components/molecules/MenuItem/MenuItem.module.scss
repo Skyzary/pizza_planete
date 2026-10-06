@@ -1,0 +1,87 @@
+@use '../../../styles/vars' as *;
+
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-xs 0;
+  margin-bottom: $spacing-sm;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.headerRow {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  justify-content: space-between;
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+
+.menuItem .name {
+  color: $secondary-color;
+  margin-bottom: 0;
+  white-space: nowrap;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 1.15rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+.dots {
+  flex: 1;
+  border-bottom: 2px dotted rgba($secondary-color, 0.3);
+  margin: 0 $spacing-sm;
+  position: relative;
+  top: -4px;
+  min-width: 8px;
+
+  @media (max-width: $breakpoint-tablet) {
+    margin: 0 8px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.ingredients {
+  color: #555;
+  font-style: italic;
+  margin-top: 4px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.prices {
+  display: flex;
+  gap: $spacing-sm;
+  font-family: $font-family-sans;
+  font-weight: 800;
+  color: $secondary-color;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-tablet) {
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: auto;
+    font-size: 0.9rem;
+  }
+}
+
+.price {
+  min-width: 45px;
+  text-align: right;
+
+  @media (max-width: 480px) {
+    min-width: auto;
+  }
+}

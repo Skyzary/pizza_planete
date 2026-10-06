@@ -1,0 +1,30 @@
+$primary-color: #F2A900; // Warm yellow/orange from the banner
+$secondary-color: #2F3631; // Dark greenish-grey for text/header from the banner
+$background-color: #FFF3DD; // Very light warm yellowish background
+$text-color: #2F3631;
+$white: #ffffff;
+$black: #000000;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 5rem;
+
+// Typography
+$font-family-sans: var(--font-nunito), "Nunito", sans-serif;
+$font-family-serif: var(--font-caveat), "Caveat", cursive;
+
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2rem;
+$font-size-xxxl: 3rem;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;

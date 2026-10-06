@@ -1,0 +1,27 @@
+@use '../../../styles/vars' as *;
+
+.section {
+  margin-bottom: $spacing-xl;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  border-bottom: 2px solid $secondary-color;
+  padding-bottom: $spacing-xs;
+  margin-bottom: $spacing-md;
+  display: inline-block;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 1.6rem;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}

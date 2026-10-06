@@ -1,0 +1,28 @@
+@use '../../styles/vars' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: $spacing-xl $spacing-md;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}

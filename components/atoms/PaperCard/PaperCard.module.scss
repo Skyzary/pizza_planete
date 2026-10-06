@@ -1,0 +1,71 @@
+@use '../../../styles/vars' as *;
+
+.paperCard {
+  background-color: #FAF6ED; /* Slightly aged, yellowish old paper color */
+  /* Combining SVG crumples with a subtle light-to-dark gradient for 3D volume (curling) */
+  background-image: 
+    url('/crumpled-paper.svg'),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.05) 100%);
+  background-size: 300px 300px, 100% 100%;
+  background-blend-mode: multiply, normal;
+  
+  padding: $spacing-lg;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-sm;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-sm $spacing-xs;
+  }
+  
+  /* Imperfect border radius for organic edges (more reliable than clip-path for complex shadows) */
+  border-radius: 2px 255px 3px 255px / 255px 5px 225px 3px;
+  border: 1px solid rgba(0,0,0, 0.05);
+  
+  /* Strong 3D Volume:
+     1. Big soft drop shadow
+     2. Sharp small shadow for thickness
+     3. Inset shadow on bottom-right for curling effect
+     4. Inset highlight on top-left */
+  box-shadow: 
+    4px 8px 20px rgba(0, 0, 0, 0.15),
+    1px 2px 4px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 15px rgba(0, 0, 0, 0.06),
+    inset 4px 4px 15px rgba(255, 255, 255, 0.8);
+              
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    box-shadow: 
+      6px 12px 25px rgba(0, 0, 0, 0.2),
+      2px 4px 8px rgba(0, 0, 0, 0.12),
+      inset -4px -4px 15px rgba(0, 0, 0, 0.08),
+      inset 4px 4px 15px rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Pronounced rotations for desktop, disabled on mobile so content does not overflow screen */
+.tilt-left {
+  transform: rotate(-2.5deg);
+  &:hover { transform: rotate(-1deg) scale(1.02); }
+
+  @media (max-width: $breakpoint-tablet) {
+    transform: none;
+    &:hover { transform: none; }
+  }
+}
+
+.tilt-right {
+  transform: rotate(2.5deg);
+  &:hover { transform: rotate(1deg) scale(1.02); }
+
+  @media (max-width: $breakpoint-tablet) {
+    transform: none;
+    &:hover { transform: none; }
+  }
+}

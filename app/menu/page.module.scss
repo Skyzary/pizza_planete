@@ -1,0 +1,39 @@
+@use '../../styles/vars' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding: $spacing-xl $spacing-md;
+  /* Light but slightly darker wood texture for the table */
+  background-color: #C39965;
+  background-image: url('/wood-texture.svg');
+  background-blend-mode: multiply;
+  background-size: cover;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-md 10px;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+}
+
+.noResults {
+  text-align: center;
+  color: #666;
+  margin-top: $spacing-xl;
+}

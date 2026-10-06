@@ -1,0 +1,56 @@
+@use '../../../styles/vars' as *;
+
+.searchBar {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto $spacing-xl;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #FFFDF9; /* Paper-like off white */
+  
+  /* Hand-drawn pill shape */
+  border-radius: 2px 255px 3px 255px / 255px 5px 225px 3px;
+  border: 2px solid $secondary-color;
+  
+  padding: $spacing-xs $spacing-sm;
+  box-shadow: 4px 6px 0px rgba($primary-color, 0.4);
+  transition: all 0.2s ease;
+  transform: rotate(-1deg);
+  
+  &:focus-within {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 6px 8px 0px rgba($primary-color, 0.6);
+    border-color: $primary-color;
+  }
+}
+
+.icon {
+  font-size: 1.2rem;
+  margin-right: $spacing-sm;
+  opacity: 0.7;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: $font-family-sans;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $secondary-color;
+  padding: $spacing-xs 0;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &::placeholder {
+    color: rgba($secondary-color, 0.4);
+    font-weight: 400;
+    font-style: italic;
+  }
+}

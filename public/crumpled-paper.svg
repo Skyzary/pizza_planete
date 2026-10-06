@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <filter id="crumple">
+    <!-- Base noise for crumples -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="5" result="noise" />
+    <!-- Lighten the noise to make it subtle -->
+    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 1 0 0 0  0 0 0 0.15 0" in="noise" result="coloredNoise" />
+    <!-- Fine grain -->
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="fineNoise" />
+    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 1 0 0 0  0 0 0 0.05 0" in="fineNoise" result="coloredFineNoise" />
+    <!-- Merge both -->
+    <feMerge>
+      <feMergeNode in="coloredNoise" />
+      <feMergeNode in="coloredFineNoise" />
+    </feMerge>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#crumple)" />
+</svg>

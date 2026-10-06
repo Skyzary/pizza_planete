@@ -1,0 +1,245 @@
+@use '../styles/vars' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+.section {
+  padding: $spacing-xxl $spacing-md;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-xl $spacing-sm;
+  }
+}
+
+.bgLight {
+  background-color: #FEE7C3; /* Warm light orange to fit the banner vibe */
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.centerText {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+}
+
+.leadText {
+  text-align: center;
+  font-size: $font-size-lg;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.feature {
+  text-align: center;
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: $spacing-sm;
+}
+
+.splitContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.menuPreviewSection {
+  background-color: #F8F2E6;
+}
+
+.gallerySection {
+  background-color: $white;
+}
+
+.galleryContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+  padding: $spacing-sm; /* Prevent clipping on hover */
+  
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-sm;
+    overflow-x: auto;
+    padding-bottom: $spacing-md;
+  }
+  
+  @media (max-width: 480px) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: $spacing-md;
+    padding-bottom: $spacing-sm;
+    
+    /* Hide scrollbar for cleaner look */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.galleryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  @media (max-width: 480px) {
+    flex: 0 0 70%;
+    scroll-snap-align: center;
+  }
+}
+
+.galleryImage {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  
+  /* Light wood (pine/oak) realistic INWARD frame effect (photo frame) */
+  border: 16px solid #D2A679;
+  border-top-color: #A37547;    /* Darkest top edge (in shadow) */
+  border-left-color: #BA8E60;   /* Darker left edge */
+  border-right-color: #E2BC94;  /* Lighter right edge */
+  border-bottom-color: #F0D4B5; /* Lightest bottom edge (catching light) */
+  
+  outline: 2px solid #7A5432;   /* Darker thin outer rim for contrast */
+  
+  /* Vintage / Aged photo effect */
+  filter: sepia(45%) grayscale(25%) contrast(85%) brightness(90%) hue-rotate(-10deg);
+  
+  box-shadow: 
+    8px 15px 25px rgba(0, 0, 0, 0.6),
+    0px 0px 5px rgba(0, 0, 0, 0.8);
+    
+  margin-bottom: $spacing-lg;
+  margin-top: $spacing-sm;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 
+      12px 25px 35px rgba(0, 0, 0, 0.5),
+      0px 0px 5px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.galleryTitle {
+  color: $primary-color;
+}
+
+.cardsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.pizzaCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.pizzaName {
+  color: $primary-color; /* Warm orange to highlight */
+  margin-bottom: $spacing-xs;
+}
+
+.pizzaDesc {
+  color: #555;
+  font-style: italic;
+  margin-bottom: $spacing-md;
+  flex: 1;
+}
+
+.pizzaPrice {
+  font-family: $font-family-sans;
+  font-weight: 800;
+  color: $secondary-color;
+  font-size: 1.1rem;
+  padding-top: $spacing-sm;
+  border-top: 1px dashed rgba($secondary-color, 0.2);
+}
+
+.showMoreContainer {
+  text-align: center;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  
+  p {
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+}
+
+.ctaSection {
+  background-color: $secondary-color;
+  color: $white;
+  text-align: center;
+}
+
+.ctaSection .ctaTitle {
+  color: $white;
+  text-align: center;
+  margin-bottom: $spacing-sm;
+}
+
+.ctaSection .ctaText {
+  color: #CCCCCC;
+  max-width: 600px;
+  margin: 0 auto $spacing-lg auto;
+  font-size: $font-size-lg;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
