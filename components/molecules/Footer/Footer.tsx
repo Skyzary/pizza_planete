@@ -9,6 +9,11 @@ export const Footer = () => {
           <p><strong>Pizza Planète</strong></p>
           <p>Tél : 04 67 85 34 34</p>
         </div>
+        <div className={styles.schedule}>
+          <p><strong>Horaires d'ouverture</strong></p>
+          <p>Lundi : Fermé</p>
+          <p>Mardi - Dimanche : 18:00 - 21:30</p>
+        </div>
         <div className={styles.links}>
           <Link href="/mentions-legales" className={styles.link}>Mentions Légales</Link>
         </div>
