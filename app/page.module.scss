@@ -160,7 +160,7 @@
 }
 
 .galleryTitle {
-  color: $primary-color;
+  color: $secondary-color;
 }
 
 .cardsRow {
@@ -183,7 +183,7 @@
 }
 
 .pizzaName {
-  color: $primary-color; /* Warm orange to highlight */
+  color: $secondary-color; /* Use secondary color for better readability on light background */
   margin-bottom: $spacing-xs;
 }
 

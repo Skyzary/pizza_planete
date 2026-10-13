@@ -1,155 +1,101 @@
-'use client';
-
-import { useState } from 'react';
+import Image from 'next/image';
 import { Header } from '../../components/molecules/Header/Header';
 import { Footer } from '../../components/molecules/Footer/Footer';
 import { Typography } from '../../components/atoms/Typography/Typography';
-import { SearchBar } from '../../components/molecules/SearchBar/SearchBar';
-import { MenuSection } from '../../components/organisms/MenuSection/MenuSection';
+import { Button } from '../../components/atoms/Button/Button';
 import styles from './page.module.scss';
 
-const pizzaData = [
+export const metadata = {
+  title: 'Notre Menu - Pizza Planète Fabrègues',
+  description: 'Consultez la carte complète de Pizza Planète : pizzas rouges, pizzas blanches et nos spécialités artisanales.',
+};
+
+const menuPages = [
   {
-    category: 'Nos pizzas rouges',
-    items: [
-      { name: 'Margarita', ingredients: 'Tomate, fromage, olives', prices: [7.00, 9.50, 11.50] },
-      { name: 'Romana', ingredients: 'Tomate, jambon, fromage, olives', prices: [8.00, 10.50, 12.50] },
-      { name: 'Reine', ingredients: 'Tomate, jambon, champignons, fromage, olives', prices: [9.00, 11.50, 13.50] },
-      { name: 'Royale', ingredients: 'Tomate, jambon, champignons, œuf, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Méditerranéenne', ingredients: 'Tomate, thon, câpres, oignons, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Catalane', ingredients: 'Tomate, thon, poivron, maïs, oignons, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Orientale', ingredients: 'Tomate, merguez, poivrons, œuf, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Tunisienne', ingredients: 'Tomate, merguez, oignons, œuf, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Arménien', ingredients: 'Tomate, chorizo, poivrons, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Sicilienne', ingredients: 'Tomate, anchois, câpres, oignons, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Campagnarde', ingredients: 'Tomate, lardons fumés, oignons, champignons, fromage, olives', prices: [9.50, 12.00, 14.50] },
-      { name: 'Provençale', ingredients: 'Tomate, oignons, poivrons, persillade, fromage, olives', prices: [9.50, 12.50, 14.50] },
-      { name: 'Végétarienne', ingredients: 'Tomate, maïs, oignons, poivrons, champignons, fromage, olives', prices: [9.50, 12.50, 14.50] },
-      { name: 'Fruits de mer', ingredients: 'Tomate, cocktail de fruits de mer, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Gévaudan', ingredients: 'Tomate, chèvre, lardons fumés, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: '4 Fromages', ingredients: 'Tomate, chèvre, roquefort, mozzarella, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Chorizo', ingredients: 'Tomate, chorizo, jambon, champignons, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Maison', ingredients: 'Tomate, jambon, champignons, chèvre, oignons, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Norvégienne', ingredients: 'Tomate, saumon fumé, oignons, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Texane', ingredients: 'Tomate, viande hachée, oignons, œuf, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Mexicaine', ingredients: 'Tomate, viande hachée, poivrons, œuf, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Western', ingredients: 'Tomate, viande hachée, poivrons, maïs, oignons, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Marina', ingredients: 'Tomate, cocktail de fruits de mer, persillade, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Pailia', ingredients: 'Tomate, viande hachée, champignons, œuf, fromage, olives', prices: [10.00, 13.00, 15.50] },
-      { name: 'Kebab', ingredients: 'Tomate, viande kebab, fromage, olives', prices: [10.00, 13.00, 15.50] },
-      { name: 'Belge', ingredients: 'Tomate, merguez, frites OU potatoes, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Yankee', ingredients: 'Tomate, viande hachée, frites OU potatoes, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Milanaise', ingredients: 'Tomate, viande hachée, mozzarella, tomate fraîche, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'L\'apéro', ingredients: 'Tomate, chorizo, oignons, tomate fraîche, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Moussaka', ingredients: 'Tomate, viande hachée, mozzarella, aubergines, fromage, olives', prices: [11.50, 13.50, 16.50] },
-      { name: 'Basquaise', ingredients: 'Tomate, poulet, oignons, poivrons, fromage, olives', prices: [11.50, 13.50, 16.50] },
-      { name: 'Grecque', ingredients: 'Tomate, viande kebab, frites OU potatoes, fromage, olives', prices: [11.50, 13.50, 16.50] },
-    ]
+    src: '/Menu_1.webp',
+    title: 'Pizzas Rouges (Base Tomate)',
+    pageNumber: 'Page 1 / 3',
+    alt: 'Menu Pizza Planète - Page 1 : Nos pizzas rouges à base de sauce tomate',
+    width: 701,
+    height: 1020,
   },
   {
-    category: 'Nos pizzas blanches',
-    items: [
-      { name: 'Flammenkueche', ingredients: 'Bianca, lardons fumés, oignons, fromage, olives', prices: [9.00, 11.50, 14.50] },
-      { name: 'Aveyronnaise', ingredients: 'Bianca, jambon, roquefort, oignons, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Canadienne', ingredients: 'Bianca, saumon fumé, mozzarella, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Bergère', ingredients: 'Bianca, chèvre, jambon, champignons, fromage, olives', prices: [10.50, 13.00, 16.00] },
-      { name: 'Quichita', ingredients: 'Bianca, œuf, jambon, lardons fumés, champignons, fromage, olives', prices: [10.50, 13.00, 16.00] },
-      { name: 'Paysanne', ingredients: 'Bianca, chèvre, lardons fumés, oignons, fromage, olives', prices: [10.50, 13.00, 16.00] },
-      { name: 'Gaïa', ingredients: 'Bianca, champignons, merguez, mozzarella, fromage, olives', prices: [10.50, 13.00, 16.00] },
-      { name: 'Forestière', ingredients: 'Bianca, viande hachée, chèvre, oignons, fromage, olives', prices: [10.50, 13.00, 16.00] },
-      { name: 'Bambino', ingredients: 'Bianca, jambon, vache qui rit, fromage, olives', prices: [10.50, 13.00, 16.00] },
-      { name: 'Bressane', ingredients: 'Bianca, viande hachée, champignons, vache qui rit, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Suprême', ingredients: 'Bianca, jambon, champignons, vache qui rit, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Chérita', ingredients: 'Bianca, poulet, bleu, œuf, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Savoyarde', ingredients: 'Bianca, jambon, pomme de terre, reblochon, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Dame Blanche', ingredients: 'Bianca, mozzarella, chèvre, reblochon, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Tartiflette', ingredients: 'Bianca, lardons fumés, oignons, PDT, reblochon, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Kebab', ingredients: 'Bianca, viande kebab, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Snack', ingredients: 'Bianca, merguez, frites OU potatoes, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Américaine', ingredients: 'Bianca, viande hachée, frites OU potatoes, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Tarti', ingredients: 'Bianca, viande kebab, frites OU potatoes, fromage, olives', prices: [11.00, 14.00, 17.50] },
-    ]
+    src: '/Menu_2.webp',
+    title: 'Pizzas Blanches & Panachées',
+    pageNumber: 'Page 2 / 3',
+    alt: 'Menu Pizza Planète - Page 2 : Nos pizzas blanches et panachées',
+    width: 695,
+    height: 1020,
   },
   {
-    category: 'Nos pizzas blanches ou Rouges à preciser',
-    items: [
-      { name: 'Chèvre', ingredients: 'Chèvre, miel, fromage, olives', prices: [10.00, 12.50, 15.50] },
-      { name: 'Poulet', ingredients: 'Poulet, miel, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Montagnarde', ingredients: 'Jambon serrano, reblochon, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Curry', ingredients: 'Viande hachée, champignons, curry, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Cami', ingredients: 'Jambon serrano, mozzarella, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Poulet curry', ingredients: 'Poulet, curry, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Braconnier', ingredients: 'Camembert, coppa, herbes de provence, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Océan', ingredients: 'Poulet, ananas, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Hawaïenne', ingredients: 'Jambon, chèvre, ananas, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Exotique', ingredients: 'Poulet, camembert, herbes de provence, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Fromagère', ingredients: 'Camembert, fromage à raclette, reblochon, chèvre, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Italia', ingredients: 'Mozzarella, coppa, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Crazy', ingredients: 'Viande hachée, mozzarella, sauce barbecue, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Burger', ingredients: 'Viande hachée, cheddar, oignons, sauce burger, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Anglaise', ingredients: 'Bacon, oignons, œuf, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Vénus', ingredients: 'Viande hachée, mozzarella, tomate fraîche, basilic, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Seul', ingredients: 'Viande hachée, mozzarella, roquefort, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Frontière', ingredients: 'Bacon, Camembert, roquefort, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Chèvre plus', ingredients: 'Fromage de chèvre, miel, noix, fromage, olives', prices: [12.00, 14.50, 18.00] },
-      { name: 'Kebab plus', ingredients: 'Viande kebab, oignons, tomate fraîche, sauce pita, fromage, olives', prices: [12.00, 14.50, 18.00] },
-      { name: 'Poulet Andalouse', ingredients: 'Poulet, sauce andalouse, crème fraîche, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'P.B.C', ingredients: 'Poulet, bacon, oignons frits, fromage, olives', prices: [11.00, 13.50, 16.50] },
-      { name: 'Flora', ingredients: 'Poulet, merguez, poivron, fromage, olives', prices: [11.50, 13.50, 16.50] },
-      { name: 'Ardechoise', ingredients: 'Jambon serrano, chèvre, noix, roquette, fromage, olives', prices: [11.50, 13.50, 16.50] },
-    ]
+    src: '/Menu_3.webp',
+    title: 'Spécialités & Nouvelles Recettes',
+    pageNumber: 'Page 3 / 3',
+    alt: 'Menu Pizza Planète - Page 3 : Spécialités et nouvelles créations',
+    width: 729,
+    height: 1020,
   },
-  {
-    category: 'Nos nouvelles pizzas sauce blanche ou sauce tomate à preciser',
-    items: [
-      { name: 'Burkina', ingredients: 'Pomme de terre, coppa, jambon, fromage à raclette, fromage, olives', prices: [11.50, 13.50, 17.00] },
-      { name: 'Millau', ingredients: 'Jambon serrano, roquefort, noix, fromage, olives', prices: [11.50, 13.50, 16.50] },
-      { name: 'Boursin', ingredients: 'Boursin, tomate fraîche, basilic, fromage, olives', prices: [12.50, 14.50, 18.00] },
-      { name: 'Napoli', ingredients: 'Pesto verde, burrata, jambon serrano, fromage, olives', prices: [12.50, 14.50, 18.00] },
-      { name: 'Pesto', ingredients: 'Burrata, courgette, tomate fraîche, basilic, fromage, olives', prices: [12.00, 14.50, 18.00] },
-      { name: 'Pise', ingredients: 'Viande hachée, chèvre, pesto, fromage, olives', prices: [8.50, 10.00, 13.00] },
-      { name: 'Barbecue', ingredients: 'Poulet, jambon, cheddar, barbecue, curry, fromage, olives', prices: [12.00, 14.50, 18.00] },
-      { name: 'Doubi', ingredients: 'Merguez, vache qui rit, fromage, olives', prices: [11.50, 13.50, 16.50] },
-      { name: 'Veggie', ingredients: 'Courgettes, aubergines, tomate fraîche, oignons, fromage, olives', prices: [9.50, 12.00, 14.00] },
-      { name: 'Bella', ingredients: 'Courgettes, mozzarella, chorizo, fromage, olives', prices: [9.50, 12.00, 14.00] },
-      { name: 'Normande', ingredients: 'Viande hachée, camembert, jambon, fromage, olives', prices: [11.50, 13.50, 17.00] },
-    ]
-  }
 ];
 
-
 export default function Menu() {
-  const [search, setSearch] = useState('');
-
-  const filteredData = pizzaData.map(section => ({
-    ...section,
-    items: section.items.filter(item => 
-      item.name.toLowerCase().includes(search.toLowerCase()) || 
-      item.ingredients.toLowerCase().includes(search.toLowerCase())
-    )
-  })).filter(section => section.items.length > 0);
-
   return (
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
         <div className={styles.container}>
-          <Typography variant="h1" className={styles.pageTitle}>Notre Menu</Typography>
-          <SearchBar 
-            value={search} 
-            onChange={(e) => setSearch(e.target.value)} 
-            placeholder="Chercher une pizza, un ingrédient..."
-          />
-          
-          {filteredData.length > 0 ? (
-            filteredData.map((section, idx) => (
-              <MenuSection key={idx} title={section.category} items={section.items} />
-            ))
-          ) : (
-            <Typography variant="body" className={styles.noResults}>
-              Aucune pizza trouvée pour votre recherche.
-            </Typography>
-          )}
+          <section className={styles.headerSection}>
+            <Typography variant="h1" className={styles.pageTitle}>Notre Menu</Typography>
+            <p className={styles.subtitle}>
+              Découvrez l&apos;intégralité de nos recettes artisanales et nos tarifs.
+              Cliquez ou appuyez sur une page pour l&apos;ouvrir en haute résolution.
+            </p>
+            <div className={styles.orderBanner}>
+              <a href="tel:0467853434" className={styles.callButton}>
+                <Button variant="primary">Commander au 04 67 85 34 34</Button>
+              </a>
+            </div>
+          </section>
+
+          <section className={styles.menuList} aria-label="Pages du menu">
+            {menuPages.map((page, index) => (
+              <article key={page.src} className={styles.menuCard}>
+                <div className={styles.cardHeader}>
+                  <h2 className={styles.cardTitle}>{page.title}</h2>
+                  <span className={styles.pageBadge}>{page.pageNumber}</span>
+                </div>
+                <a
+                  href={page.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.imageLink}
+                  title={`Ouvrir la ${page.pageNumber} en grand format`}
+                >
+                  <Image
+                    src={page.src}
+                    alt={page.alt}
+                    width={page.width}
+                    height={page.height}
+                    className={styles.menuImage}
+                    priority={index === 0}
+                    sizes="(max-width: 768px) 100vw, 860px"
+                  />
+                  <div className={styles.zoomOverlay} aria-hidden="true">
+                    <span>🔍 Agrandir l&apos;image</span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </section>
+
+          <section className={styles.bottomCta}>
+            <Typography variant="h2" className={styles.bottomTitle}>Une envie de pizza ?</Typography>
+            <p className={styles.bottomText}>
+              Passez commande directement par téléphone pour un retrait rapide et chaud en boutique !
+            </p>
+            <a href="tel:0467853434" className={styles.callButton}>
+              <Button variant="primary">Appeler le 04 67 85 34 34</Button>
+            </a>
+          </section>
         </div>
       </main>
       <Footer />
