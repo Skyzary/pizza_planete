@@ -19,6 +19,31 @@ export const Hero = () => {
             <Button variant="secondary">Appeler : 04 67 85 34 34</Button>
           </a>
         </div>
+        <a href="#avantages" className={styles.perksCard} aria-label="Découvrir nos avantages : Livraison Gratuite, Paiement par CB, Tickets Resto">
+          <div className={styles.perkCol}>
+            <span className={styles.perkIcon} aria-hidden="true">🛵</span>
+            <div className={styles.perkContent}>
+              <span className={styles.perkTitle}>Livraison Gratuite</span>
+              <span className={styles.perkSub}>0€ de frais</span>
+            </div>
+          </div>
+          <div className={styles.perkDivider} aria-hidden="true" />
+          <div className={styles.perkCol}>
+            <span className={styles.perkIcon} aria-hidden="true">💳</span>
+            <div className={styles.perkContent}>
+              <span className={styles.perkTitle}>Paiement par CB</span>
+              <span className={styles.perkSub}>Sans contact &amp; TPE</span>
+            </div>
+          </div>
+          <div className={styles.perkDivider} aria-hidden="true" />
+          <div className={styles.perkCol}>
+            <span className={styles.perkIcon} aria-hidden="true">🎫</span>
+            <div className={styles.perkContent}>
+              <span className={styles.perkTitle}>Tickets Resto</span>
+              <span className={styles.perkSub}>Cartes &amp; Chèques</span>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
   );

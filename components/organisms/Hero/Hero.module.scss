@@ -10,6 +10,11 @@
   background-color: rgba(#FFF3DD, 0.85); /* Light warm overlay to make text readable */
   border-bottom: 2px solid $primary-color;
   margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 1.25rem 0.75rem 1rem 0.75rem;
+    margin-bottom: $spacing-md;
+  }
 }
 
 .content {
@@ -20,6 +25,12 @@
 .subtitle {
   font-size: $font-size-lg;
   margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
 }
 
 .actions {
@@ -27,4 +38,116 @@
   justify-content: center;
   gap: $spacing-md;
   flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-tablet) {
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
+  }
+}
+
+.perksCard {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  background: rgba(#FAF6ED, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba($primary-color, 0.55);
+  border-radius: 16px;
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  margin-top: $spacing-lg;
+  padding: 0.65rem 0.85rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+    border-color: $primary-color;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.25rem;
+    border-radius: 12px;
+  }
+}
+
+.perkCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.35rem;
+  text-align: left;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.15rem;
+    padding: 0.15rem 0.1rem;
+  }
+}
+
+.perkIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 1.35rem;
+  }
+}
+
+.perkContent {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.perkTitle {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: $secondary-color;
+  white-space: nowrap;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 0.75rem;
+    white-space: normal;
+    word-break: normal;
+    line-height: 1.15;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.68rem;
+  }
+}
+
+.perkSub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #D47B00;
+  letter-spacing: 0.02em;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 0.65rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.6rem;
+  }
+}
+
+.perkDivider {
+  width: 1px;
+  height: 38px;
+  background: rgba($secondary-color, 0.15);
+
+  @media (max-width: $breakpoint-tablet) {
+    height: 32px;
+  }
 }

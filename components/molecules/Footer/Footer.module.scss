@@ -24,6 +24,12 @@
   gap: $spacing-xs;
 }
 
+.perks {
+  color: $primary-color;
+  font-size: $font-size-sm;
+  font-weight: 700;
+}
+
 .links {
   display: flex;
   gap: $spacing-md;
