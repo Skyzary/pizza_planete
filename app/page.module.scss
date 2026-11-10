@@ -252,15 +252,14 @@
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: $spacing-lg;
   margin-top: $spacing-xl;
   padding: $spacing-sm; /* Prevent clipping on hover */
   
   @media (max-width: $breakpoint-tablet) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-sm;
-    overflow-x: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-md;
     padding-bottom: $spacing-md;
   }
   
@@ -286,46 +285,81 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-width: 0;
+  width: 100%;
   
   @media (max-width: 480px) {
-    flex: 0 0 70%;
+    flex: 0 0 75%;
     scroll-snap-align: center;
   }
 }
 
-.galleryImage {
+.photoFrame {
+  position: relative;
   width: 100%;
-  max-width: 350px;
+  max-width: 320px;
+  aspect-ratio: 1;
+  display: flex;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  border-radius: 4px;
+  
+  /* Genuine wood texture with warm undertone fallback */
+  background-color: #613B1E;
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%),
+    url('/wood-frame-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay, normal;
+  
+  /* Wood moulding profile: outer rim, bevel highlight & shadows, deep realistic wall drop shadow */
+  border: 1px solid #361c0d;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 240, 215, 0.5),     /* Top edge light catching */
+    inset 1px 0 1px rgba(255, 240, 215, 0.35),    /* Left edge light catching */
+    inset 0 -1px 2px rgba(20, 10, 5, 0.7),        /* Bottom bevel shadow */
+    inset -1px 0 2px rgba(20, 10, 5, 0.6),        /* Right bevel shadow */
+    0 10px 24px rgba(0, 0, 0, 0.35),              /* Soft ambient wall shadow */
+    0 2px 6px rgba(0, 0, 0, 0.25);
+    
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 
+      inset 0 1px 2px rgba(255, 240, 215, 0.6),
+      inset 0 -1px 2px rgba(20, 10, 5, 0.75),
+      0 18px 36px rgba(0, 0, 0, 0.42),
+      0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.photoInner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  box-sizing: border-box;
+  
+  /* Inner wooden rebate (lip) holding the photo with shadow cast onto the image */
+  border: 2px solid #2B150A;
+  box-shadow: 
+    inset 0 3px 8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 2px rgba(0, 0, 0, 0.7),
+    0 1px 0 rgba(255, 255, 255, 0.15); /* Subtle inner wood rim highlight */
+}
+
+.galleryImage {
+  display: block;
+  width: 100%;
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
-  
-  /* Light wood (pine/oak) realistic INWARD frame effect (photo frame) */
-  border: 16px solid #D2A679;
-  border-top-color: #A37547;    /* Darkest top edge (in shadow) */
-  border-left-color: #BA8E60;   /* Darker left edge */
-  border-right-color: #E2BC94;  /* Lighter right edge */
-  border-bottom-color: #F0D4B5; /* Lightest bottom edge (catching light) */
-  
-  outline: 2px solid #7A5432;   /* Darker thin outer rim for contrast */
-  
-  /* Vintage / Aged photo effect */
-  filter: sepia(45%) grayscale(25%) contrast(85%) brightness(90%) hue-rotate(-10deg);
-  
-  box-shadow: 
-    8px 15px 25px rgba(0, 0, 0, 0.6),
-    0px 0px 5px rgba(0, 0, 0, 0.8);
-    
-  margin-bottom: $spacing-lg;
-  margin-top: $spacing-sm;
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.03) translateY(-5px);
-    box-shadow: 
-      12px 25px 35px rgba(0, 0, 0, 0.5),
-      0px 0px 5px rgba(0, 0, 0, 0.8);
-  }
 }
 
 .galleryTitle {

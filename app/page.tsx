@@ -208,19 +208,35 @@ export default function Home() {
             <Typography variant="h2" className={styles.centerText}>Nos Pizzas Phares</Typography>
             <div className={styles.gallery}>
               <div className={styles.galleryItem}>
-                <Image src="/margarita_white.jpg" alt="Pizza Margarita" width={400} height={400} className={styles.galleryImage} />
+                <div className={styles.photoFrame}>
+                  <div className={styles.photoInner}>
+                    <Image src="/margarita_white.jpg" alt="Pizza Margarita" width={400} height={400} className={styles.galleryImage} />
+                  </div>
+                </div>
                 <Typography variant="h3" className={styles.galleryTitle}>Margarita</Typography>
               </div>
               <div className={styles.galleryItem}>
-                <Image src="/royale_white.jpg" alt="Pizza Royale" width={400} height={400} className={styles.galleryImage} />
+                <div className={styles.photoFrame}>
+                  <div className={styles.photoInner}>
+                    <Image src="/royale_white.jpg" alt="Pizza Royale" width={400} height={400} className={styles.galleryImage} />
+                  </div>
+                </div>
                 <Typography variant="h3" className={styles.galleryTitle}>Royale</Typography>
               </div>
               <div className={styles.galleryItem}>
-                <Image src="/4_fromages_white.jpg" alt="Pizza 4 Fromages" width={400} height={400} className={styles.galleryImage} />
+                <div className={styles.photoFrame}>
+                  <div className={styles.photoInner}>
+                    <Image src="/4_fromages_white.jpg" alt="Pizza 4 Fromages" width={400} height={400} className={styles.galleryImage} />
+                  </div>
+                </div>
                 <Typography variant="h3" className={styles.galleryTitle}>4 Fromages</Typography>
               </div>
               <div className={styles.galleryItem}>
-                <Image src="/savoyarde_white.jpg" alt="Pizza Savoyarde" width={400} height={400} className={styles.galleryImage} />
+                <div className={styles.photoFrame}>
+                  <div className={styles.photoInner}>
+                    <Image src="/savoyarde_white.jpg" alt="Pizza Savoyarde" width={400} height={400} className={styles.galleryImage} />
+                  </div>
+                </div>
                 <Typography variant="h3" className={styles.galleryTitle}>Savoyarde</Typography>
               </div>
             </div>
