@@ -162,11 +162,11 @@ export default function Home() {
         
         <section className={styles.section}>
           <div className={styles.container}>
-            <Typography variant="h2" className={styles.centerText}>L&apos;Art de la Vraie Pizza</Typography>
+            <Typography variant="h2" className={styles.centerText}>L&apos;Art de la Vraie Pizza à Fabrègues</Typography>
             <Typography variant="body" className={styles.leadText}>
-              Bienvenue chez <strong>Pizza Planète</strong>, l&apos;incontournable pizzeria où la tradition rencontre l&apos;exigence. 
+              Bienvenue chez <strong>Pizza Planète</strong>, votre pizzeria artisanale au cœur de <strong>Fabrègues (34690)</strong> où la tradition rencontre l&apos;exigence. 
               Parce que pour nous, une pizza n&apos;est pas juste un repas, c&apos;est une véritable expérience gustative, 
-              nous mettons tout notre cœur pour vous préparer les meilleures pizzas de la ville.
+              nous mettons tout notre savoir-faire pour vous préparer les meilleures pizzas de la région.
             </Typography>
           </div>
         </section>
@@ -210,34 +210,70 @@ export default function Home() {
               <div className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
-                    <Image src="/margarita_white.jpg" alt="Pizza Margarita" width={400} height={400} className={styles.galleryImage} />
+                    <Image
+                      src="/margarita_white.webp"
+                      alt="Pizza Margarita artisanale à Fabrègues"
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      className={styles.galleryImage}
+                    />
                   </div>
                 </div>
                 <Typography variant="h3" className={styles.galleryTitle}>Margarita</Typography>
+                <p className={styles.galleryIngredients}>Tomate, mozzarella fondante, fromage, olives</p>
+                <span className={styles.galleryPriceTag}>dès 7.00€</span>
               </div>
               <div className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
-                    <Image src="/royale_white.jpg" alt="Pizza Royale" width={400} height={400} className={styles.galleryImage} />
+                    <Image
+                      src="/royale_white.webp"
+                      alt="Pizza Royale artisanale à Fabrègues"
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      className={styles.galleryImage}
+                    />
                   </div>
                 </div>
                 <Typography variant="h3" className={styles.galleryTitle}>Royale</Typography>
+                <p className={styles.galleryIngredients}>Tomate, jambon, champignons, œuf, fromage, olives</p>
+                <span className={styles.galleryPriceTag}>dès 9.50€</span>
               </div>
               <div className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
-                    <Image src="/4_fromages_white.jpg" alt="Pizza 4 Fromages" width={400} height={400} className={styles.galleryImage} />
+                    <Image
+                      src="/4_fromages_white.webp"
+                      alt="Pizza 4 Fromages artisanale à Fabrègues"
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      className={styles.galleryImage}
+                    />
                   </div>
                 </div>
                 <Typography variant="h3" className={styles.galleryTitle}>4 Fromages</Typography>
+                <p className={styles.galleryIngredients}>Tomate ou crème, chèvre, roquefort, mozzarella, olives</p>
+                <span className={styles.galleryPriceTag}>dès 10.00€</span>
               </div>
               <div className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
-                    <Image src="/savoyarde_white.jpg" alt="Pizza Savoyarde" width={400} height={400} className={styles.galleryImage} />
+                    <Image
+                      src="/savoyarde_white.webp"
+                      alt="Pizza Savoyarde artisanale à Fabrègues"
+                      width={400}
+                      height={400}
+                      loading="lazy"
+                      className={styles.galleryImage}
+                    />
                   </div>
                 </div>
                 <Typography variant="h3" className={styles.galleryTitle}>Savoyarde</Typography>
+                <p className={styles.galleryIngredients}>Crème, jambon, pommes de terre, reblochon, fromage</p>
+                <span className={styles.galleryPriceTag}>dès 11.00€</span>
               </div>
             </div>
           </div>
@@ -298,8 +334,8 @@ export default function Home() {
           <div className={styles.container}>
             <Typography variant="h2" className={styles.ctaTitle}>Prêt à vous régaler ?</Typography>
             <Typography variant="body" className={styles.ctaText}>
-              N&apos;attendez plus ! Consultez notre carte ou appelez-nous directement pour commander. 
-              Votre prochaine pizza artisanale n&apos;est qu&apos;à un coup de téléphone.
+              N&apos;attendez plus ! Consultez notre carte ou appelez-nous directement. 
+              Retrouvez-nous au <strong>1 Rue Guynemer à Fabrègues</strong> ou faites-vous livrer gratuitement chez vous !
             </Typography>
             <div className={styles.ctaPerks}>
               <div className={styles.ctaPerk}>

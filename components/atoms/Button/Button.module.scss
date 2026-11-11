@@ -1,26 +1,66 @@
 @use '../../../styles/vars' as *;
 
 .button {
-  padding: $spacing-sm $spacing-md;
-  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem 1.6rem;
+  border-radius: 9999px;
   border: none;
   font-family: $font-family-sans;
-  font-weight: bold;
-  font-size: $font-size-base;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-  
+  text-decoration: none;
+  transition: transform 0.18s cubic-bezier(0.2, 0, 0, 1),
+              box-shadow 0.18s ease,
+              background-color 0.18s ease,
+              opacity 0.18s ease;
+  user-select: none;
+  white-space: nowrap;
+
   &:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
   }
 }
 
 .primary {
   background-color: $primary-color;
   color: $secondary-color;
+  box-shadow: 0 4px 14px rgba($primary-color, 0.4);
+
+  &:hover {
+    background-color: lighten($primary-color, 4%);
+    box-shadow: 0 6px 18px rgba($primary-color, 0.5);
+  }
+
+  &:active {
+    box-shadow: 0 2px 8px rgba($primary-color, 0.4);
+  }
 }
 
 .secondary {
   background-color: $secondary-color;
   color: $white;
+  box-shadow: 0 4px 14px rgba(47, 54, 49, 0.35);
+
+  &:hover {
+    background-color: lighten($secondary-color, 8%);
+    box-shadow: 0 6px 18px rgba(47, 54, 49, 0.45);
+  }
+
+  &:active {
+    box-shadow: 0 2px 8px rgba(47, 54, 49, 0.35);
+  }
 }

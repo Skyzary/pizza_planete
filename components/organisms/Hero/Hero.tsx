@@ -1,15 +1,19 @@
 import Link from 'next/link';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Button } from '../../atoms/Button/Button';
+import { OpenStatusBadge } from '../../atoms/OpenStatusBadge/OpenStatusBadge';
 import styles from './Hero.module.scss';
 
 export const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
-        <Typography variant="h1">Bienvenue chez Pizza Planète</Typography>
+        <div className={styles.badgeWrapper}>
+          <OpenStatusBadge variant="full" theme="light" />
+        </div>
+        <Typography variant="h1">Pizzeria Artisanale à Fabrègues</Typography>
         <Typography variant="body" className={styles.subtitle}>
-          Les meilleures pizzas artisanales de la région, préparées avec des ingrédients frais.
+          Bienvenue chez <strong>Pizza Planète</strong> ! Les meilleures pizzas artisanales de Fabrègues et ses alentours, préparées avec passion et des ingrédients frais. Livraison 100% gratuite.
         </Typography>
         <div className={styles.actions}>
           <Link href="/menu">

@@ -55,8 +55,8 @@
   &:hover { transform: rotate(-1deg) scale(1.02); }
 
   @media (max-width: $breakpoint-tablet) {
-    transform: none;
-    &:hover { transform: none; }
+    transform: none !important;
+    &:hover { transform: none !important; }
   }
 }
 
@@ -65,7 +65,7 @@
   &:hover { transform: rotate(1deg) scale(1.02); }
 
   @media (max-width: $breakpoint-tablet) {
-    transform: none;
-    &:hover { transform: none; }
+    transform: none !important;
+    &:hover { transform: none !important; }
   }
 }

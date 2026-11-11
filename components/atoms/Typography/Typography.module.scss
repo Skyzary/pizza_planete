@@ -12,6 +12,12 @@
   @media (max-width: $breakpoint-tablet) {
     font-size: $font-size-xxl;
   }
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.85rem;
+    line-height: 1.15;
+    margin-bottom: $spacing-sm;
+  }
 }
 
 .h2 {
@@ -21,6 +27,14 @@
   color: $secondary-color;
   margin-bottom: $spacing-sm;
   letter-spacing: 0;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.55rem;
+  }
 }
 
 .h3 {
@@ -29,6 +43,10 @@
   font-weight: bold;
   color: $secondary-color;
   margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.25rem;
+  }
 }
 
 .body {
@@ -36,6 +54,10 @@
   font-size: $font-size-base;
   color: $text-color;
   margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 0.95rem;
+  }
 }
 
 .caption {

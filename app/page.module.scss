@@ -243,6 +243,7 @@
 
 .gallerySection {
   background-color: $white;
+  overflow: hidden;
 }
 
 .galleryContainer {
@@ -260,23 +261,14 @@
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: $spacing-md;
-    padding-bottom: $spacing-md;
+    padding: $spacing-xs;
   }
   
   @media (max-width: 480px) {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: $spacing-md;
-    padding-bottom: $spacing-sm;
-    
-    /* Hide scrollbar for cleaner look */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0;
+    margin-top: $spacing-md;
   }
 }
 
@@ -287,11 +279,6 @@
   text-align: center;
   min-width: 0;
   width: 100%;
-  
-  @media (max-width: 480px) {
-    flex: 0 0 75%;
-    scroll-snap-align: center;
-  }
 }
 
 .photoFrame {
@@ -305,12 +292,18 @@
   margin-top: $spacing-sm;
   margin-bottom: $spacing-lg;
   border-radius: 4px;
+
+  @media (max-width: 480px) {
+    padding: 8px;
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
   
   /* Genuine wood texture with warm undertone fallback */
   background-color: #613B1E;
   background-image: 
     linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.25) 100%),
-    url('/wood-frame-texture.jpg');
+    url('/wood-frame-texture.webp');
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay, normal;
@@ -364,6 +357,43 @@
 
 .galleryTitle {
   color: $secondary-color;
+  margin-bottom: 2px;
+
+  @media (max-width: 480px) {
+    font-size: 1.15rem;
+  }
+}
+
+.galleryIngredients {
+  font-size: 0.88rem;
+  color: #555;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  max-width: 280px;
+
+  @media (max-width: 480px) {
+    font-size: 0.76rem;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+}
+
+.galleryPriceTag {
+  display: inline-block;
+  background-color: rgba($primary-color, 0.22);
+  color: #92400e;
+  font-family: $font-family-sans;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 3px 11px;
+  border-radius: 9999px;
+  border: 1px solid rgba($primary-color, 0.45);
+
+  @media (max-width: 480px) {
+    font-size: 0.74rem;
+    padding: 2px 8px;
+  }
 }
 
 .cardsRow {

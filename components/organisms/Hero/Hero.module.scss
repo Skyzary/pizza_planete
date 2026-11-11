@@ -3,16 +3,18 @@
 .hero {
   padding: $spacing-xxl $spacing-md;
   text-align: center;
-  background-image: url('/banner.jpg');
+  background-image: url('/banner.webp');
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
   background-color: rgba(#FFF3DD, 0.85); /* Light warm overlay to make text readable */
   border-bottom: 2px solid $primary-color;
   margin-bottom: $spacing-xl;
+  width: 100%;
+  box-sizing: border-box;
 
   @media (max-width: $breakpoint-tablet) {
-    padding: 1.25rem 0.75rem 1rem 0.75rem;
+    padding: 1.5rem 1rem 1.25rem 1rem;
     margin-bottom: $spacing-md;
   }
 }
@@ -20,16 +22,25 @@
 .content {
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.badgeWrapper {
+  margin-bottom: $spacing-sm;
+  display: flex;
+  justify-content: center;
 }
 
 .subtitle {
   font-size: $font-size-lg;
   margin-bottom: $spacing-lg;
+  line-height: 1.6;
 
   @media (max-width: $breakpoint-tablet) {
     font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.35;
+    margin-bottom: 0.85rem;
+    line-height: 1.45;
   }
 }
 
@@ -40,8 +51,22 @@
   flex-wrap: wrap;
 
   @media (max-width: $breakpoint-tablet) {
-    gap: 0.5rem;
-    margin-bottom: 0.65rem;
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+
+    a, button {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
@@ -63,6 +88,8 @@
   margin-right: auto;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
 
   &:hover {
     transform: translateY(-2px);
@@ -71,9 +98,18 @@
   }
 
   @media (max-width: $breakpoint-tablet) {
-    margin-top: 0.5rem;
-    padding: 0.5rem 0.25rem;
-    border-radius: 12px;
+    margin-top: 0.65rem;
+    padding: 0.6rem 0.4rem;
+    border-radius: 14px;
+  }
+
+  @media (max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    max-width: 330px;
   }
 }
 
@@ -91,6 +127,21 @@
     gap: 0.15rem;
     padding: 0.15rem 0.1rem;
   }
+
+  @media (max-width: 540px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 5px 6px;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px dashed rgba($primary-color, 0.35);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 .perkIcon {
@@ -101,12 +152,22 @@
   @media (max-width: $breakpoint-tablet) {
     font-size: 1.35rem;
   }
+
+  @media (max-width: 540px) {
+    font-size: 1.45rem;
+  }
 }
 
 .perkContent {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
 }
 
 .perkTitle {
@@ -122,8 +183,10 @@
     line-height: 1.15;
   }
 
-  @media (max-width: 360px) {
-    font-size: 0.68rem;
+  @media (max-width: 540px) {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    line-height: 1.2;
   }
 }
 
@@ -137,8 +200,8 @@
     font-size: 0.65rem;
   }
 
-  @media (max-width: 360px) {
-    font-size: 0.6rem;
+  @media (max-width: 540px) {
+    font-size: 0.8rem;
   }
 }
 
@@ -149,5 +212,9 @@
 
   @media (max-width: $breakpoint-tablet) {
     height: 32px;
+  }
+
+  @media (max-width: 540px) {
+    display: none;
   }
 }
