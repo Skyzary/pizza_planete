@@ -4,7 +4,9 @@ import { Header } from '../../components/molecules/Header/Header';
 import { Footer } from '../../components/molecules/Footer/Footer';
 import { Typography } from '../../components/atoms/Typography/Typography';
 import { Button } from '../../components/atoms/Button/Button';
+import { OpenStatusBadge } from '../../components/atoms/OpenStatusBadge/OpenStatusBadge';
 import { MenuJsonLd } from '../../components/seo/MenuJsonLd';
+import { drinksData } from '../../pizza_data';
 import styles from './page.module.scss';
 
 export const metadata: Metadata = {
@@ -25,28 +27,28 @@ export const metadata: Metadata = {
 
 const menuPages = [
   {
-    src: '/Menu_1.webp',
+    src: '/Menu_1_hd.webp',
     title: 'Pizzas Rouges (Base Tomate)',
     pageNumber: 'Page 1 / 3',
     alt: 'Menu Pizza Planète Fabrègues - Page 1 : Pizzas rouges à base de sauce tomate',
-    width: 701,
-    height: 1020,
+    width: 1600,
+    height: 2328,
   },
   {
-    src: '/Menu_2.webp',
+    src: '/Menu_2_hd.webp',
     title: 'Pizzas Blanches & Panachées',
     pageNumber: 'Page 2 / 3',
     alt: 'Menu Pizza Planète Fabrègues - Page 2 : Pizzas blanches et panachées',
-    width: 695,
-    height: 1020,
+    width: 1600,
+    height: 2348,
   },
   {
-    src: '/Menu_3.webp',
+    src: '/Menu_3_hd.webp',
     title: 'Spécialités & Nouvelles Recettes',
     pageNumber: 'Page 3 / 3',
     alt: 'Menu Pizza Planète Fabrègues - Page 3 : Spécialités et nouvelles créations',
-    width: 729,
-    height: 1020,
+    width: 1600,
+    height: 2239,
   },
 ];
 
@@ -58,15 +60,18 @@ export default function Menu() {
       <main className={styles.main}>
         <div className={styles.container}>
           <section className={styles.headerSection}>
+            <div className={styles.badgeWrapper}>
+              <OpenStatusBadge variant="full" theme="light" />
+            </div>
             <Typography variant="h1" className={styles.pageTitle}>Notre Menu &amp; Carte</Typography>
             <p className={styles.subtitle}>
               Découvrez l&apos;intégralité de nos pizzas artisanales et nos tarifs à <strong>Fabrègues</strong>.
-              Cliquez ou appuyez sur une page pour l&apos;ouvrir en haute résolution.
+              Cliquez ou appuyez sur une page pour l&apos;ouvrir en plein écran.
             </p>
             <div className={styles.orderBanner}>
-              <a href="tel:0467853434" className={styles.callButton}>
-                <Button variant="primary">Commander au 04 67 85 34 34</Button>
-              </a>
+              <Button href="tel:0467853434" variant="primary">
+                Commander au 04 67 85 34 34
+              </Button>
             </div>
           </section>
 
@@ -100,6 +105,51 @@ export default function Menu() {
                 </a>
               </article>
             ))}
+
+            {/* Carte des Boissons */}
+            <article className={styles.menuCard} id="boissons" aria-labelledby="boissons-title">
+              <div className={styles.cardHeader}>
+                <h2 id="boissons-title" className={styles.cardTitle}>
+                  Boissons &amp; Alcools
+                </h2>
+                <span className={styles.pageBadge}>Frais &amp; Prêts</span>
+              </div>
+              <div className={styles.drinksBody}>
+                <div className={styles.drinksGrid}>
+                  {drinksData.map((group) => (
+                    <div key={group.category} className={styles.drinkGroup}>
+                      <div className={styles.drinkGroupHeader}>
+                        <span className={styles.drinkGroupTitle}>
+                          <span aria-hidden="true">{group.icon}</span>
+                          <span>{group.category}</span>
+                        </span>
+                        {group.uniformPrice !== undefined && (
+                          <span className={styles.drinkUniformPrice}>
+                            {group.uniformPrice.toFixed(2).replace('.', ',')} €
+                          </span>
+                        )}
+                      </div>
+                      <ul className={styles.drinkList}>
+                        {group.items.map((item) => (
+                          <li key={`${group.category}-${item.name}`} className={styles.drinkItem}>
+                            <span className={styles.drinkName}>{item.name}</span>
+                            <span className={styles.drinkDots} aria-hidden="true" />
+                            <span className={styles.drinkPrice}>
+                              {item.price % 1 === 0
+                                ? `${item.price} €`
+                                : `${item.price.toFixed(2).replace('.', ',')} €`}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <p className={styles.alcoholNotice}>
+                  L&apos;abus d&apos;alcool est dangereux pour la santé, à consommer avec modération.
+                </p>
+              </div>
+            </article>
           </section>
 
           <section className={styles.bottomCta}>
@@ -107,9 +157,9 @@ export default function Menu() {
             <p className={styles.bottomText}>
               Livraison 100% gratuite à <strong>Fabrègues</strong> et alentours, ou à emporter au <strong>1 Rue Guynemer</strong> !
             </p>
-            <a href="tel:0467853434" className={styles.callButton}>
-              <Button variant="primary">Appeler le 04 67 85 34 34</Button>
-            </a>
+            <Button href="tel:0467853434" variant="primary">
+              Commander au 04 67 85 34 34
+            </Button>
           </section>
         </div>
       </main>

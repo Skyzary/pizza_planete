@@ -1,35 +1,48 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import styles from './StickyMobileBar.module.scss';
 
+type BarState = 'neutral' | 'open' | 'soon' | 'closed';
+
 export const StickyMobileBar = () => {
-  const pathname = usePathname();
-  const isMenuPage = pathname === '/menu';
+  const [barState, setBarState] = useState<BarState>('neutral');
+
+  useEffect(() => {
+    const updateStatus = () => {
+      try {
+        const now = new Date();
+        const parisDate = new Date(
+          now.toLocaleString('en-US', { timeZone: 'Europe/Paris' })
+        );
+        const day = parisDate.getDay();
+        const minutes = parisDate.getHours() * 60 + parisDate.getMinutes();
+        const isOpenDay = day !== 1; // Fermé le lundi
+
+        if (isOpenDay && minutes >= 18 * 60 && minutes < 21 * 60 + 30) {
+          setBarState('open');
+        } else if (isOpenDay && minutes < 18 * 60) {
+          setBarState('soon');
+        } else {
+          setBarState('closed');
+        }
+      } catch {
+        setBarState('neutral');
+      }
+    };
+
+    updateStatus();
+    const timer = setInterval(updateStatus, 30000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <aside className={styles.stickyDock} aria-label="Commande rapide mobile">
       <div className={styles.dockIsland}>
-        {/* Toggle between Home and Menu */}
-        <Link
-          href={isMenuPage ? '/' : '/menu'}
-          className={styles.menuTab}
-          aria-label={isMenuPage ? "Retourner à l'accueil" : 'Voir notre menu'}
-        >
-          <span className={styles.tabIcon} aria-hidden="true">
-            {isMenuPage ? '🏠' : '🍕'}
-          </span>
-          <span className={styles.tabText}>
-            {isMenuPage ? 'Accueil' : 'Carte'}
-          </span>
-        </Link>
-
-        {/* Main Calling CTA */}
         <a
           href="tel:0467853434"
           className={styles.callCta}
-          title="Appeler pour commander"
+          title="Appeler Pizza Planète pour commander"
         >
           <div className={styles.callIconWrapper}>
             <svg
@@ -43,7 +56,9 @@ export const StickyMobileBar = () => {
           </div>
           <div className={styles.callInfo}>
             <div className={styles.callLabel}>
-              <span className={styles.pulseDot} aria-hidden="true" />
+              {barState === 'open' && (
+                <span className={styles.pulseDot} aria-hidden="true" />
+              )}
               <span className={styles.actionName}>Commander</span>
               <span className={styles.freeBadge}>0€ livraison</span>
             </div>

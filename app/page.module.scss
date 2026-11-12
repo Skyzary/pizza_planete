@@ -145,12 +145,6 @@
   justify-content: center;
   color: $secondary-color;
   margin-bottom: $spacing-sm;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  }
 }
 
 .serviceSvg {
@@ -279,6 +273,15 @@
   text-align: center;
   min-width: 0;
   width: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover .galleryTitle {
+      color: #9E5800;
+    }
+  }
 }
 
 .photoFrame {
@@ -464,50 +467,10 @@
 }
 
 .ctaSection .ctaText {
-  color: #CCCCCC;
+  color: #E2E8F0;
   max-width: 600px;
   margin: 0 auto $spacing-lg auto;
   font-size: $font-size-lg;
-}
-
-.ctaPerks {
-  display: flex;
-  justify-content: center;
-  gap: $spacing-md;
-  flex-wrap: wrap;
-  margin-bottom: $spacing-xl;
-
-  @media (max-width: $breakpoint-tablet) {
-    gap: $spacing-xs;
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.ctaPerk {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba($white, 0.1);
-  border: 1px solid rgba($white, 0.25);
-  padding: 0.45rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: $white;
-
-  @media (max-width: $breakpoint-mobile) {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-  }
-}
-
-.ctaPerkIcon {
-  font-size: 1.2rem;
 }
 
 .ctaButtons {
@@ -515,4 +478,17 @@
   justify-content: center;
   gap: $spacing-md;
   flex-wrap: wrap;
+}
+
+.ctaLightSecondary {
+  background-color: rgba($white, 0.1);
+  border: 1.5px solid rgba($white, 0.35);
+  color: $white;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba($white, 0.18);
+      border-color: rgba($white, 0.6);
+    }
+  }
 }

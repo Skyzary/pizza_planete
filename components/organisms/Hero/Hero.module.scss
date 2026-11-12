@@ -9,13 +9,11 @@
   background-blend-mode: overlay;
   background-color: rgba(#FFF3DD, 0.85); /* Light warm overlay to make text readable */
   border-bottom: 2px solid $primary-color;
-  margin-bottom: $spacing-xl;
   width: 100%;
   box-sizing: border-box;
 
   @media (max-width: $breakpoint-tablet) {
     padding: 1.5rem 1rem 1.25rem 1rem;
-    margin-bottom: $spacing-md;
   }
 }
 
@@ -191,13 +189,13 @@
 }
 
 .perkSub {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #D47B00;
+  color: #9E5800;
   letter-spacing: 0.02em;
 
   @media (max-width: $breakpoint-tablet) {
-    font-size: 0.65rem;
+    font-size: 0.74rem;
   }
 
   @media (max-width: 540px) {

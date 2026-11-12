@@ -152,7 +152,7 @@ export default function Home() {
                   </div>
                   <div className={styles.serviceHighlightItem}>
                     <span className={styles.checkIcon} aria-hidden="true">✓</span>
-                    <span>Valable 6j/7 midi et soir</span>
+                    <span>Valable du mardi au dimanche soir</span>
                   </div>
                 </div>
               </PaperCard>
@@ -207,7 +207,7 @@ export default function Home() {
           <div className={styles.galleryContainer}>
             <Typography variant="h2" className={styles.centerText}>Nos Pizzas Phares</Typography>
             <div className={styles.gallery}>
-              <div className={styles.galleryItem}>
+              <Link href="/menu" className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
                     <Image
@@ -223,8 +223,8 @@ export default function Home() {
                 <Typography variant="h3" className={styles.galleryTitle}>Margarita</Typography>
                 <p className={styles.galleryIngredients}>Tomate, mozzarella fondante, fromage, olives</p>
                 <span className={styles.galleryPriceTag}>dès 7.00€</span>
-              </div>
-              <div className={styles.galleryItem}>
+              </Link>
+              <Link href="/menu" className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
                     <Image
@@ -240,8 +240,8 @@ export default function Home() {
                 <Typography variant="h3" className={styles.galleryTitle}>Royale</Typography>
                 <p className={styles.galleryIngredients}>Tomate, jambon, champignons, œuf, fromage, olives</p>
                 <span className={styles.galleryPriceTag}>dès 9.50€</span>
-              </div>
-              <div className={styles.galleryItem}>
+              </Link>
+              <Link href="/menu" className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
                     <Image
@@ -257,8 +257,8 @@ export default function Home() {
                 <Typography variant="h3" className={styles.galleryTitle}>4 Fromages</Typography>
                 <p className={styles.galleryIngredients}>Tomate ou crème, chèvre, roquefort, mozzarella, olives</p>
                 <span className={styles.galleryPriceTag}>dès 10.00€</span>
-              </div>
-              <div className={styles.galleryItem}>
+              </Link>
+              <Link href="/menu" className={styles.galleryItem}>
                 <div className={styles.photoFrame}>
                   <div className={styles.photoInner}>
                     <Image
@@ -274,7 +274,7 @@ export default function Home() {
                 <Typography variant="h3" className={styles.galleryTitle}>Savoyarde</Typography>
                 <p className={styles.galleryIngredients}>Crème, jambon, pommes de terre, reblochon, fromage</p>
                 <span className={styles.galleryPriceTag}>dès 11.00€</span>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -300,32 +300,32 @@ export default function Home() {
 
         <section className={`${styles.section} ${styles.menuPreviewSection}`}>
           <div className={styles.container}>
-            <Typography variant="h2" className={styles.centerText}>Un Aperçu de la Carte</Typography>
+            <Typography variant="h2" className={styles.centerText}>D&apos;autres Recettes à Découvrir</Typography>
             
             <div className={styles.cardsRow}>
               <PaperCard tilt="left" className={styles.pizzaCard}>
-                <Typography variant="h3" className={styles.pizzaName}>Royale</Typography>
-                <Typography variant="caption" className={styles.pizzaDesc}>Tomate, jambon, champignons, œuf, fromage, olives</Typography>
-                <div className={styles.pizzaPrice}>à partir de 9.50€</div>
+                <Typography variant="h3" className={styles.pizzaName}>Méditerranéenne</Typography>
+                <Typography variant="caption" className={styles.pizzaDesc}>Tomate, thon, câpres, oignons, fromage, olives</Typography>
+                <div className={styles.pizzaPrice}>dès 9.50€</div>
               </PaperCard>
               
               <PaperCard tilt="none" className={styles.pizzaCard}>
-                <Typography variant="h3" className={styles.pizzaName}>4 Fromages</Typography>
-                <Typography variant="caption" className={styles.pizzaDesc}>Crème, chèvre, roquefort, mozzarella, fromage, olives</Typography>
-                <div className={styles.pizzaPrice}>à partir de 10.00€</div>
+                <Typography variant="h3" className={styles.pizzaName}>Chèvre Plus</Typography>
+                <Typography variant="caption" className={styles.pizzaDesc}>Fromage de chèvre, miel doux, noix, fromage, olives</Typography>
+                <div className={styles.pizzaPrice}>dès 12.00€</div>
               </PaperCard>
 
               <PaperCard tilt="right" className={styles.pizzaCard}>
-                <Typography variant="h3" className={styles.pizzaName}>Méditerranéenne</Typography>
-                <Typography variant="caption" className={styles.pizzaDesc}>Tomate, thon, câpres, oignons, fromage, olives</Typography>
-                <div className={styles.pizzaPrice}>à partir de 9.50€</div>
+                <Typography variant="h3" className={styles.pizzaName}>Napoli</Typography>
+                <Typography variant="caption" className={styles.pizzaDesc}>Pesto verde, burrata crémeuse, jambon serrano, fromage, olives</Typography>
+                <div className={styles.pizzaPrice}>dès 12.50€</div>
               </PaperCard>
             </div>
             
             <div className={styles.showMoreContainer}>
-              <Link href="/menu">
-                <Button variant="primary">Voir tout le menu</Button>
-              </Link>
+              <Button href="/menu" variant="primary">
+                Voir toute la Carte (+50 Pizzas)
+              </Button>
             </div>
           </div>
         </section>
@@ -334,30 +334,16 @@ export default function Home() {
           <div className={styles.container}>
             <Typography variant="h2" className={styles.ctaTitle}>Prêt à vous régaler ?</Typography>
             <Typography variant="body" className={styles.ctaText}>
-              N&apos;attendez plus ! Consultez notre carte ou appelez-nous directement. 
-              Retrouvez-nous au <strong>1 Rue Guynemer à Fabrègues</strong> ou faites-vous livrer gratuitement chez vous !
+              N&apos;attendez plus ! Consultez notre carte complète ou appelez-nous directement. 
+              Retrouvez-nous au <strong>1 Rue Guynemer à Fabrègues</strong> ou profitez de la livraison gratuite !
             </Typography>
-            <div className={styles.ctaPerks}>
-              <div className={styles.ctaPerk}>
-                <span className={styles.ctaPerkIcon} aria-hidden="true">🛵</span>
-                <span>Livraison 100% Gratuite</span>
-              </div>
-              <div className={styles.ctaPerk}>
-                <span className={styles.ctaPerkIcon} aria-hidden="true">💳</span>
-                <span>Paiement par CB à domicile</span>
-              </div>
-              <div className={styles.ctaPerk}>
-                <span className={styles.ctaPerkIcon} aria-hidden="true">🎫</span>
-                <span>Titres-Restaurant acceptés</span>
-              </div>
-            </div>
             <div className={styles.ctaButtons}>
-              <Link href="/menu">
-                <Button variant="primary">Découvrir le Menu</Button>
-              </Link>
-              <a href="tel:0467853434">
-                <Button variant="secondary">Commander au 04 67 85 34 34</Button>
-              </a>
+              <Button href="/menu" variant="primary">
+                Voir le Menu
+              </Button>
+              <Button href="tel:0467853434" variant="secondary" className={styles.ctaLightSecondary}>
+                Commander au 04 67 85 34 34
+              </Button>
             </div>
           </div>
         </section>

@@ -26,3 +26,26 @@
   flex-direction: column;
   gap: $spacing-md;
 }
+
+.inlineLink {
+  font-weight: 700;
+  color: $secondary-color;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  @media (hover: hover) {
+    &:hover {
+      color: #9E5800;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px dashed rgba($secondary-color, 0.15);
+}

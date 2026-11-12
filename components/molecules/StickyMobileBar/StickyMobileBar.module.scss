@@ -4,153 +4,88 @@
   display: none;
 
   @media (max-width: $breakpoint-tablet) {
-    display: block;
+    display: flex;
+    justify-content: center;
     position: fixed;
-    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 0 12px;
-    pointer-events: none; /* Let clicks pass through outside the island */
+    padding: 0 16px;
+    pointer-events: none; /* Let clicks pass through outside the pill */
     animation: floatUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
 .dockIsland {
-  pointer-events: auto; /* Active touches inside the floating island */
-  max-width: 420px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(26, 30, 27, 0.94);
+  pointer-events: auto; /* Active touches strictly inside the floating pill */
+  width: fit-content;
+  max-width: 100%;
+  background: rgba(47, 54, 49, 0.94); /* Brand secondary color with glassmorphism */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 9999px;
-  padding: 6px;
+  padding: 5px;
   box-shadow: 
-    0 12px 32px -4px rgba(0, 0, 0, 0.45),
-    0 4px 12px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 12px 32px -4px rgba(0, 0, 0, 0.42),
+    0 4px 12px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
   box-sizing: border-box;
-  width: 100%;
-}
-
-.menuTab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  padding: 8px 14px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #F1F5F9;
-  text-decoration: none;
-  font-family: $font-family-sans;
-  font-weight: 700;
-  flex-shrink: 0;
-  transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.14);
-    color: $white;
-  }
-
-  &:active {
-    transform: scale(0.94);
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  @media (max-width: 360px) {
-    padding: 7px 11px;
-  }
-}
-
-.tabIcon {
-  font-size: 1.15rem;
-  line-height: 1;
-}
-
-.tabText {
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
 }
 
 .callCta {
-  flex: 1;
-  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   color: #1c211d;
   border-radius: 9999px;
-  padding: 6px 14px 6px 8px;
+  padding: 6px 18px 6px 7px;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.45);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
   transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
-  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     filter: brightness(1.05);
-    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.55);
+    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.5);
   }
 
   &:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.4);
-  }
-
-  @media (max-width: 360px) {
-    padding: 5px 10px 5px 6px;
-    gap: 8px;
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
   }
 }
 
 .callIconWrapper {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(28, 33, 29, 0.92);
+  background: #232825;
   color: #FBBF24;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-
-  @media (max-width: 360px) {
-    width: 32px;
-    height: 32px;
-  }
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .phoneSvg {
-  width: 18px;
-  height: 18px;
-
-  @media (max-width: 360px) {
-    width: 16px;
-    height: 16px;
-  }
+  width: 19px;
+  height: 19px;
 }
 
 .callInfo {
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  overflow: hidden;
-  line-height: 1.15;
+  line-height: 1.18;
 }
 
 .callLabel {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-size: 0.72rem;
   font-weight: 800;
   color: #3b2204;
@@ -164,8 +99,8 @@
 }
 
 .pulseDot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background-color: #15803D;
   box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.8);
@@ -175,30 +110,20 @@
 
 .freeBadge {
   background: rgba(0, 0, 0, 0.12);
-  padding: 1px 5px;
-  border-radius: 4px;
+  padding: 1px 6px;
+  border-radius: 9999px;
   font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0;
-
-  @media (max-width: 360px) {
-    display: none;
-  }
+  letter-spacing: 0.01em;
 }
 
 .phoneNumber {
   font-family: $font-family-sans;
-  font-size: 1.02rem;
+  font-size: 1.06rem;
   font-weight: 900;
   color: #111827;
   letter-spacing: 0.03em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @media (max-width: 360px) {
-    font-size: 0.92rem;
-  }
 }
 
 @keyframes pulseDot {

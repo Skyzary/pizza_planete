@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Typography } from '../../atoms/Typography/Typography';
 import { Button } from '../../atoms/Button/Button';
 import { OpenStatusBadge } from '../../atoms/OpenStatusBadge/OpenStatusBadge';
@@ -16,12 +15,12 @@ export const Hero = () => {
           Bienvenue chez <strong>Pizza Planète</strong> ! Les meilleures pizzas artisanales de Fabrègues et ses alentours, préparées avec passion et des ingrédients frais. Livraison 100% gratuite.
         </Typography>
         <div className={styles.actions}>
-          <Link href="/menu">
-            <Button variant="primary">Voir le Menu</Button>
-          </Link>
-          <a href="tel:0467853434">
-            <Button variant="secondary">Appeler : 04 67 85 34 34</Button>
-          </a>
+          <Button href="/menu" variant="primary">
+            Voir le Menu
+          </Button>
+          <Button href="tel:0467853434" variant="secondary">
+            Commander au 04 67 85 34 34
+          </Button>
         </div>
         <a href="#avantages" className={styles.perksCard} aria-label="Découvrir nos avantages : Livraison Gratuite, Paiement par CB, Tickets Resto">
           <div className={styles.perkCol}>

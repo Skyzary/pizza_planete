@@ -1,9 +1,14 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Logo } from '../../atoms/Logo/Logo';
 import { OpenStatusBadge } from '../../atoms/OpenStatusBadge/OpenStatusBadge';
 import styles from './Header.module.scss';
 
 export const Header = () => {
+  const pathname = usePathname();
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -13,8 +18,18 @@ export const Header = () => {
         </div>
 
         <nav className={styles.nav} aria-label="Navigation principale">
-          <Link href="/" className={styles.link}>Accueil</Link>
-          <Link href="/menu" className={styles.link}>Menu</Link>
+          <Link
+            href="/"
+            className={`${styles.link} ${pathname === '/' ? styles.activeLink : ''}`.trim()}
+          >
+            Accueil
+          </Link>
+          <Link
+            href="/menu"
+            className={`${styles.link} ${pathname === '/menu' ? styles.activeLink : ''}`.trim()}
+          >
+            Menu
+          </Link>
         </nav>
 
         <div className={styles.actions}>

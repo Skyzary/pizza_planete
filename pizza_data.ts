@@ -106,3 +106,48 @@ export const pizzaData = [
     ]
   }
 ];
+
+export interface DrinkItem {
+  name: string;
+  price: number;
+}
+
+export interface DrinkCategory {
+  category: string;
+  icon: string;
+  uniformPrice?: number;
+  items: DrinkItem[];
+}
+
+export const drinksData: DrinkCategory[] = [
+  {
+    category: 'Canettes',
+    icon: '🥫',
+    uniformPrice: 1.50,
+    items: [
+      { name: 'Coca-Cola', price: 1.50 },
+      { name: 'Orangina', price: 1.50 },
+      { name: 'Ice Tea', price: 1.50 },
+      { name: 'Oasis', price: 1.50 },
+    ],
+  },
+  {
+    category: 'Bouteilles',
+    icon: '🍾',
+    uniformPrice: 3.50,
+    items: [
+      { name: 'Coca-Cola', price: 3.50 },
+      { name: 'Fanta Orange', price: 3.50 },
+      { name: 'Fanta Citron', price: 3.50 },
+    ],
+  },
+  {
+    category: 'Alcools',
+    icon: '🍷',
+    items: [
+      { name: 'Desperados', price: 3.00 },
+      { name: 'Vin rosé', price: 7.00 },
+      { name: 'Vin rouge', price: 7.00 },
+    ],
+  },
+];

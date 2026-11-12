@@ -1,6 +1,8 @@
 @use '../../../styles/vars' as *;
 
 .logo {
+  display: inline-flex;
+  align-items: center;
   font-family: $font-family-serif;
   font-size: 2.2rem;
   font-weight: 700;
@@ -8,14 +10,16 @@
   text-decoration: none;
   letter-spacing: 1px;
   line-height: 1.1;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: $breakpoint-tablet) {
+    min-height: 44px;
     font-size: 1.35rem;
     letter-spacing: 0.5px;
     white-space: nowrap;
   }
 
   @media (max-width: 380px) {
-    font-size: 1.18rem;
+    font-size: 1.15rem;
   }
 }
