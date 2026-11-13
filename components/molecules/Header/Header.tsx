@@ -69,8 +69,8 @@ export const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.iconButton}
-            aria-label="Facebook Pizza Planète"
-            title="Facebook Pizza Planète"
+            aria-label="Facebook Pizza Planets"
+            title="Facebook Pizza Planets"
           >
             <svg
               className={styles.icon}

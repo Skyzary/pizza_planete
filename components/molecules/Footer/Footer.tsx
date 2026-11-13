@@ -8,7 +8,7 @@ export const Footer = () => {
         {/* Brand Block */}
         <div className={styles.brandBlock}>
           <Link href="/" className={styles.brandLogo}>
-            Pizza Planète
+            Pizza Planets
           </Link>
           <p className={styles.tagline}>
             Pizzeria artisanale à Fabrègues • Pâte fraîche maison
@@ -31,7 +31,7 @@ export const Footer = () => {
           <a
             href="tel:0467853434"
             className={`${styles.pillLink} ${styles.phonePill}`}
-            title="Appeler Pizza Planète"
+            title="Appeler Pizza Planets"
           >
             <span aria-hidden="true">📞</span>
             <span>04 67 85 34 34</span>
@@ -42,7 +42,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialPill}
-            aria-label="Facebook Pizza Planète"
+            aria-label="Facebook Pizza Planets"
             title="Suivez-nous sur Facebook"
           >
             <svg
@@ -70,7 +70,7 @@ export const Footer = () => {
 
         {/* Sub-footer */}
         <div className={styles.bottomBar}>
-          <span className={styles.copyright}>© 2026 Pizza Planète Fabrègues</span>
+          <span className={styles.copyright}>© 2026 Pizza Planets Fabrègues</span>
           <nav className={styles.links} aria-label="Liens de pied de page">
             <Link href="/" className={styles.link}>Accueil</Link>
             <span className={styles.linkDot} aria-hidden="true">•</span>

@@ -35,8 +35,8 @@ export const MenuJsonLd = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Menu',
-    name: 'Carte Pizza Planète Fabrègues',
-    description: 'Menu complet des pizzas artisanales et boissons de Pizza Planète à Fabrègues.',
+    name: 'Carte Pizza Planets Fabrègues',
+    description: 'Menu complet des pizzas artisanales et boissons de Pizza Planets à Fabrègues.',
     inLanguage: 'fr',
     hasMenuSection: [...pizzaSections, ...drinkSections],
   };

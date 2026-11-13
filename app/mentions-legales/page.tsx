@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Mentions Légales',
-  description: 'Mentions légales et politique de confidentialité de la pizzeria Pizza Planète à Fabrègues (34690).',
+  description: 'Mentions légales et politique de confidentialité de la pizzeria Pizza Planets à Fabrègues (34690).',
   alternates: {
     canonical: '/mentions-legales',
   },
@@ -26,7 +26,7 @@ export default function MentionsLegales() {
             <div className={styles.content}>
               <Typography variant="h3">1. Éditeur du site</Typography>
               <Typography variant="body">
-                <strong>Pizza Planète</strong><br />
+                <strong>Pizza Planets</strong><br />
                 Adresse : 1 Rue Guynemer, 34690 Fabrègues, France<br />
                 Téléphone : <a href="tel:0467853434" className={styles.inlineLink}>04 67 85 34 34</a><br />
                 Email : contact@pizza-planete.fr
@@ -45,7 +45,7 @@ export default function MentionsLegales() {
 
               <Typography variant="h3">4. Protection des données personnelles (RGPD)</Typography>
               <Typography variant="body">
-                Pizza Planète s&apos;engage à ce que la collecte et le traitement de vos données, effectués à partir 
+                Pizza Planets s&apos;engage à ce que la collecte et le traitement de vos données, effectués à partir 
                 du site pizza-planete.fr, soient conformes au règlement général sur la protection des données (RGPD).
                 Aucune information personnelle n&apos;est collectée à votre insu ni cédée à des tiers.
               </Typography>

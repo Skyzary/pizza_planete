@@ -12,7 +12,7 @@ export const Hero = () => {
         </div>
         <Typography variant="h1">Pizzeria Artisanale à Fabrègues</Typography>
         <Typography variant="body" className={styles.subtitle}>
-          Bienvenue chez <strong>Pizza Planète</strong> ! Les meilleures pizzas artisanales de Fabrègues et ses alentours, préparées avec passion et des ingrédients frais. Livraison 100% gratuite.
+          Bienvenue chez <strong>Pizza Planets</strong> ! Les meilleures pizzas artisanales de Fabrègues et ses alentours, préparées avec passion et des ingrédients frais. Livraison 100% gratuite.
         </Typography>
         <div className={styles.actions}>
           <Button href="/menu" variant="primary">

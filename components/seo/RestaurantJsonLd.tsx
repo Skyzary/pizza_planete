@@ -3,8 +3,8 @@ export const RestaurantJsonLd = () => {
     '@context': 'https://schema.org',
     '@type': 'FastFoodRestaurant',
     '@id': 'https://pizza-planete.fr/#restaurant',
-    name: 'Pizza Planète',
-    alternateName: ['Pizza Planets', 'Pizza Planete Fabrègues'],
+    name: 'Pizza Planets',
+    alternateName: ['Pizza Planète', 'Pizza Planets Fabrègues', 'Pizza Planete Fabrègues'],
     description:
       'Pizzeria artisanale à Fabrègues. Plus de 50 recettes de pizzas rouges, blanches et panachées. Livraison 100% gratuite, paiement par CB et titres-restaurant acceptés.',
     url: 'https://pizza-planete.fr',

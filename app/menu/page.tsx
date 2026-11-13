@@ -12,14 +12,14 @@ import styles from './page.module.scss';
 export const metadata: Metadata = {
   title: 'Notre Carte & Menu - Pizzas artisanales à Fabrègues',
   description:
-    'Consultez la carte complète de Pizza Planète à Fabrègues (34690) : plus de 50 pizzas artisanales (rouges, blanches, spécialités) et leurs tarifs. Livraison 100% gratuite au 04 67 85 34 34.',
+    'Consultez la carte complète de Pizza Planets à Fabrègues (34690) : plus de 50 pizzas artisanales (rouges, blanches, spécialités) et leurs tarifs. Livraison 100% gratuite au 04 67 85 34 34.',
   alternates: {
     canonical: '/menu',
   },
   openGraph: {
-    title: 'Notre Menu & Tarifs - Pizza Planète Fabrègues',
+    title: 'Notre Menu & Tarifs - Pizza Planets Fabrègues',
     description:
-      'Découvrez la carte complète de Pizza Planète à Fabrègues : plus de 50 recettes au choix et livraison gratuite.',
+      'Découvrez la carte complète de Pizza Planets à Fabrègues : plus de 50 recettes au choix et livraison gratuite.',
     url: 'https://pizza-planete.fr/menu',
     images: ['/banner.jpg'],
   },
@@ -30,7 +30,7 @@ const menuPages = [
     src: '/Menu_1_hd.webp',
     title: 'Pizzas Rouges (Base Tomate)',
     pageNumber: 'Page 1 / 3',
-    alt: 'Menu Pizza Planète Fabrègues - Page 1 : Pizzas rouges à base de sauce tomate',
+    alt: 'Menu Pizza Planets Fabrègues - Page 1 : Pizzas rouges à base de sauce tomate',
     width: 1600,
     height: 2328,
   },
@@ -38,7 +38,7 @@ const menuPages = [
     src: '/Menu_2_hd.webp',
     title: 'Pizzas Blanches & Panachées',
     pageNumber: 'Page 2 / 3',
-    alt: 'Menu Pizza Planète Fabrègues - Page 2 : Pizzas blanches et panachées',
+    alt: 'Menu Pizza Planets Fabrègues - Page 2 : Pizzas blanches et panachées',
     width: 1600,
     height: 2348,
   },
@@ -46,7 +46,7 @@ const menuPages = [
     src: '/Menu_3_hd.webp',
     title: 'Spécialités & Nouvelles Recettes',
     pageNumber: 'Page 3 / 3',
-    alt: 'Menu Pizza Planète Fabrègues - Page 3 : Spécialités et nouvelles créations',
+    alt: 'Menu Pizza Planets Fabrègues - Page 3 : Spécialités et nouvelles créations',
     width: 1600,
     height: 2239,
   },

@@ -42,7 +42,7 @@ export const StickyMobileBar = () => {
         <a
           href="tel:0467853434"
           className={styles.callCta}
-          title="Appeler Pizza Planète pour commander"
+          title="Appeler Pizza Planets pour commander"
         >
           <div className={styles.callIconWrapper}>
             <svg

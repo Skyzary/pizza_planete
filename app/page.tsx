@@ -22,7 +22,7 @@ export default function Home() {
               <span className={styles.servicesPill}>Vos Avantages Gourmands</span>
               <Typography variant="h2" className={styles.centerText}>Commandez en Toute Sérénité</Typography>
               <Typography variant="body" className={styles.servicesSubtitle}>
-                Chez <strong>Pizza Planète</strong>, savourer une excellente pizza artisanale rime avec simplicité.
+                Chez <strong>Pizza Planets</strong>, savourer une excellente pizza artisanale rime avec simplicité.
                 Découvrez nos engagements pour un service sur-mesure et sans mauvaise surprise.
               </Typography>
             </div>
@@ -164,7 +164,7 @@ export default function Home() {
           <div className={styles.container}>
             <Typography variant="h2" className={styles.centerText}>L&apos;Art de la Vraie Pizza à Fabrègues</Typography>
             <Typography variant="body" className={styles.leadText}>
-              Bienvenue chez <strong>Pizza Planète</strong>, votre pizzeria artisanale au cœur de <strong>Fabrègues (34690)</strong> où la tradition rencontre l&apos;exigence. 
+              Bienvenue chez <strong>Pizza Planets</strong>, votre pizzeria artisanale au cœur de <strong>Fabrègues (34690)</strong> où la tradition rencontre l&apos;exigence. 
               Parce que pour nous, une pizza n&apos;est pas juste un repas, c&apos;est une véritable expérience gustative, 
               nous mettons tout notre savoir-faire pour vous préparer les meilleures pizzas de la région.
             </Typography>
