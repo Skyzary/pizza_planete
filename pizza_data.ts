@@ -119,6 +119,75 @@ export interface DrinkCategory {
   items: DrinkItem[];
 }
 
+export interface FormulePizzaItem {
+  title: string;
+  price: number;
+  description: string;
+}
+
+export interface FormulesData {
+  pizzas: {
+    title: string;
+    badge: string;
+    description: string;
+    items: FormulePizzaItem[];
+  };
+  boissons: {
+    title: string;
+    badge: string;
+    conditions: string[];
+    reward: string;
+    choices: string[];
+    note: string;
+  };
+}
+
+export const formulesData: FormulesData = {
+  pizzas: {
+    title: 'Formules Pizzas',
+    badge: '33 cm Ø uniquement',
+    description: 'Valable exclusivement sur les pizzas en taille 33 cm Ø',
+    items: [
+      {
+        title: '2 Margarita',
+        price: 15.00,
+        description: '2 pizzas Margarita au format 33 cm Ø',
+      },
+      {
+        title: '2 Romana',
+        price: 16.50,
+        description: '2 pizzas Romana au format 33 cm Ø',
+      },
+      {
+        title: 'Margarita + 1 pizza au choix',
+        price: 19.00,
+        description: '1 Margarita + 1 pizza de votre choix sur la carte (33 cm Ø)',
+      },
+      {
+        title: 'Romana + 1 pizza au choix',
+        price: 20.00,
+        description: '1 Romana + 1 pizza de votre choix sur la carte (33 cm Ø)',
+      },
+    ],
+  },
+  boissons: {
+    title: 'Formule Boissons',
+    badge: '1 Bouteille OFFERTE',
+    conditions: [
+      'Pour l\'achat de 3 pizzas 26 Ø',
+      'Pour l\'achat de 4 pizzas 33 Ø',
+      'Pour l\'achat de 4 pizzas 40 Ø',
+    ],
+    reward: '1 bouteille OFFERTE',
+    choices: [
+      'Coca-Cola',
+      'Fanta Orange ou Citron',
+      'Vin : Rouge ou Rosé',
+    ],
+    note: 'Offre non cumulable (hors formule)',
+  },
+};
+
 export const drinksData: DrinkCategory[] = [
   {
     category: 'Canettes',

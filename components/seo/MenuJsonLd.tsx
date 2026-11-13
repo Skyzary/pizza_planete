@@ -1,4 +1,4 @@
-import { pizzaData, drinksData } from '../../pizza_data';
+import { pizzaData, drinksData, formulesData } from '../../pizza_data';
 
 export const MenuJsonLd = () => {
   const pizzaSections = pizzaData.map((category) => ({
@@ -18,6 +18,22 @@ export const MenuJsonLd = () => {
     })),
   }));
 
+  const formuleSection = {
+    '@type': 'MenuSection',
+    name: 'Formules Spéciales',
+    description: 'Formules pizzas 33 cm et offres boissons',
+    hasMenuItem: formulesData.pizzas.items.map((formule) => ({
+      '@type': 'MenuItem',
+      name: formule.title,
+      description: formule.description,
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'EUR',
+        price: formule.price.toFixed(2),
+      },
+    })),
+  };
+
   const drinkSections = drinksData.map((category) => ({
     '@type': 'MenuSection',
     name: category.category,
@@ -36,9 +52,9 @@ export const MenuJsonLd = () => {
     '@context': 'https://schema.org',
     '@type': 'Menu',
     name: 'Carte Pizza Planets Fabrègues',
-    description: 'Menu complet des pizzas artisanales et boissons de Pizza Planets à Fabrègues.',
+    description: 'Menu complet des pizzas artisanales, formules et boissons de Pizza Planets à Fabrègues.',
     inLanguage: 'fr',
-    hasMenuSection: [...pizzaSections, ...drinkSections],
+    hasMenuSection: [...pizzaSections, formuleSection, ...drinkSections],
   };
 
   return (

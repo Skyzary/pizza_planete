@@ -6,20 +6,20 @@ import { Typography } from '../../components/atoms/Typography/Typography';
 import { Button } from '../../components/atoms/Button/Button';
 import { OpenStatusBadge } from '../../components/atoms/OpenStatusBadge/OpenStatusBadge';
 import { MenuJsonLd } from '../../components/seo/MenuJsonLd';
-import { drinksData } from '../../pizza_data';
+import { drinksData, formulesData } from '../../pizza_data';
 import styles from './page.module.scss';
 
 export const metadata: Metadata = {
   title: 'Notre Carte & Menu - Pizzas artisanales à Fabrègues',
   description:
-    'Consultez la carte complète de Pizza Planets à Fabrègues (34690) : plus de 50 pizzas artisanales (rouges, blanches, spécialités) et leurs tarifs. Livraison 100% gratuite au 04 67 85 34 34.',
+    'Consultez la carte complète de Pizza Planets à Fabrègues (34690) : plus de 50 pizzas artisanales, formules avantageuses et boissons. Livraison 100% gratuite au 04 67 85 34 34.',
   alternates: {
     canonical: '/menu',
   },
   openGraph: {
     title: 'Notre Menu & Tarifs - Pizza Planets Fabrègues',
     description:
-      'Découvrez la carte complète de Pizza Planets à Fabrègues : plus de 50 recettes au choix et livraison gratuite.',
+      'Découvrez la carte complète de Pizza Planets à Fabrègues : plus de 50 recettes au choix, formules 33 Ø et livraison gratuite.',
     url: 'https://pizza-planete.fr/menu',
     images: ['/banner.jpg'],
   },
@@ -73,6 +73,14 @@ export default function Menu() {
                 Commander au 04 67 85 34 34
               </Button>
             </div>
+            <div className={styles.quickNav}>
+              <a href="#formules" className={styles.quickNavPill}>
+                <span aria-hidden="true">🏷️</span> Formules 33 Ø &amp; Boissons Offertes
+              </a>
+              <a href="#boissons" className={styles.quickNavPill}>
+                <span aria-hidden="true">🥤</span> Boissons &amp; Alcools
+              </a>
+            </div>
           </section>
 
           {/* Dépliant visuel haute résolution */}
@@ -105,6 +113,87 @@ export default function Menu() {
                 </a>
               </article>
             ))}
+
+            {/* Section Formules & Offres Spéciales */}
+            <article className={styles.menuCard} id="formules" aria-labelledby="formules-title">
+              <div className={styles.cardHeader}>
+                <h2 id="formules-title" className={styles.cardTitle}>
+                  Nos Formules &amp; Offres Spéciales
+                </h2>
+                <span className={styles.pageBadge}>Bons Plans</span>
+              </div>
+              <div className={styles.formulesBody}>
+                <div className={styles.formulesGrid}>
+                  {/* Formule 33 Ø uniquement */}
+                  <div className={styles.formuleGroup}>
+                    <div className={styles.formuleGroupHeader}>
+                      <span className={styles.formuleGroupTitle}>
+                        <span aria-hidden="true">🍕</span>
+                        <span>{formulesData.pizzas.title}</span>
+                      </span>
+                      <span className={styles.formuleBadge}>
+                        {formulesData.pizzas.badge}
+                      </span>
+                    </div>
+                    <p className={styles.formuleSubtext}>
+                      {formulesData.pizzas.description}
+                    </p>
+                    <ul className={styles.formuleList}>
+                      {formulesData.pizzas.items.map((item) => (
+                        <li key={item.title} className={styles.formuleItem}>
+                          <div className={styles.formuleItemMain}>
+                            <span className={styles.formuleName}>{item.title}</span>
+                            <span className={styles.formuleDots} aria-hidden="true" />
+                            <span className={styles.formulePrice}>
+                              {item.price.toFixed(2).replace('.', ',')} €
+                            </span>
+                          </div>
+                          {item.description && (
+                            <span className={styles.formuleDesc}>{item.description}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Formule Boissons */}
+                  <div className={`${styles.formuleGroup} ${styles.formuleDrinkGroup}`}>
+                    <div className={styles.formuleGroupHeader}>
+                      <span className={styles.formuleGroupTitle}>
+                        <span aria-hidden="true">🎁</span>
+                        <span>{formulesData.boissons.title}</span>
+                      </span>
+                      <span className={`${styles.formuleBadge} ${styles.badgeFree}`}>
+                        {formulesData.boissons.badge}
+                      </span>
+                    </div>
+                    <p className={styles.formuleSubtext}>
+                      Profitez d&apos;une bouteille offerte selon la taille et le nombre de pizzas :
+                    </p>
+                    <ul className={styles.promoConditionsList}>
+                      {formulesData.boissons.conditions.map((condition) => (
+                        <li key={condition} className={styles.promoConditionItem}>
+                          <span className={styles.conditionCheck} aria-hidden="true">✓</span>
+                          <span><strong>{condition}</strong></span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className={styles.rewardBanner}>
+                      <span className={styles.rewardIcon} aria-hidden="true">🍾</span>
+                      <div className={styles.rewardText}>
+                        <span className={styles.rewardTitle}>= 1 bouteille OFFERTE</span>
+                        <span className={styles.rewardChoices}>
+                          Au choix : {formulesData.boissons.choices.join(', ')}
+                        </span>
+                      </div>
+                    </div>
+                    <p className={styles.formuleNotice}>
+                      *{formulesData.boissons.note}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
 
             {/* Carte des Boissons */}
             <article className={styles.menuCard} id="boissons" aria-labelledby="boissons-title">

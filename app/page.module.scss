@@ -492,3 +492,188 @@
     }
   }
 }
+
+/* Section Formules Home */
+.formulesSection {
+  background: linear-gradient(180deg, #FEE7C3 0%, #FAF4E6 50%, #FEE7C3 100%);
+  border-top: 1px solid rgba($primary-color, 0.35);
+  border-bottom: 1px solid rgba($primary-color, 0.35);
+}
+
+.formulesHomeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+  align-items: stretch;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.formuleHomeCard {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-lg;
+  background: $white;
+  height: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-md;
+  }
+}
+
+.formuleHomeDrinkCard {
+  border: 2px dashed rgba($primary-color, 0.85);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%);
+}
+
+.formuleHomeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-xs;
+  flex-wrap: wrap;
+  padding-bottom: $spacing-sm;
+  border-bottom: 2px solid rgba($primary-color, 0.35);
+  margin-bottom: $spacing-sm;
+}
+
+.formuleHomeTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formuleHomeIcon {
+  font-size: 1.5rem;
+}
+
+.formuleHomeTitle {
+  color: $secondary-color;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.formuleHomeBadge {
+  background-color: rgba($secondary-color, 0.08);
+  color: $secondary-color;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba($secondary-color, 0.2);
+}
+
+.formuleHomeBadgeFree {
+  background-color: rgba(#2e7d32, 0.12);
+  color: #1b5e20;
+  border-color: rgba(#2e7d32, 0.3);
+  font-weight: 800;
+}
+
+.formuleHomeDesc {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: $spacing-md;
+  line-height: 1.4;
+}
+
+.formuleHomeList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  margin-bottom: $spacing-lg;
+}
+
+.formuleHomeItem {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 1rem;
+  color: $secondary-color;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 0.92rem;
+  }
+}
+
+.formuleHomeDots {
+  flex: 1;
+  border-bottom: 1.5px dotted rgba($secondary-color, 0.25);
+  min-width: 12px;
+}
+
+.formuleHomePrice {
+  font-weight: 800;
+  color: #9E5800;
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.promoConditionsHome {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: $spacing-md;
+}
+
+.promoConditionHomeItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  background-color: rgba($primary-color, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: $secondary-color;
+}
+
+.rewardHomeBanner {
+  background: linear-gradient(135deg, #FFF0D6 0%, #FFE5B5 100%);
+  border: 1px solid rgba($primary-color, 0.6);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: $spacing-xs;
+}
+
+.rewardHomeTitle {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #9E5800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rewardHomeChoices {
+  font-size: 0.85rem;
+  color: #4a4a4a;
+  line-height: 1.3;
+}
+
+.formuleHomeNote {
+  font-size: 0.78rem;
+  color: #888;
+  font-style: italic;
+  text-align: right;
+  margin: 0 0 $spacing-md 0;
+  flex: 1;
+}
+
+.formuleHomeAction {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+
+  a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

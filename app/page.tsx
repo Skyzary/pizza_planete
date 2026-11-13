@@ -298,6 +298,100 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Section Formules & Bons Plans */}
+        <section className={`${styles.section} ${styles.formulesSection}`}>
+          <div className={styles.container}>
+            <div className={styles.servicesHeader}>
+              <span className={styles.servicesPill}>Bons Plans &amp; Économies</span>
+              <Typography variant="h2" className={styles.centerText}>Nos Formules Avantageuses</Typography>
+              <Typography variant="body" className={styles.servicesSubtitle}>
+                Profitez de nos offres combinées pour régaler vos proches au meilleur prix !
+              </Typography>
+            </div>
+
+            <div className={styles.formulesHomeGrid}>
+              <PaperCard tilt="left" className={styles.formuleHomeCard}>
+                <div className={styles.formuleHomeHeader}>
+                  <div className={styles.formuleHomeTitleRow}>
+                    <span className={styles.formuleHomeIcon} aria-hidden="true">🍕</span>
+                    <Typography variant="h3" className={styles.formuleHomeTitle}>Formule Pizzas 33 Ø</Typography>
+                  </div>
+                  <span className={styles.formuleHomeBadge}>33 cm Ø uniquement</span>
+                </div>
+                <p className={styles.formuleHomeDesc}>
+                  Deux pizzas savoureuses au format Grande (33 cm Ø) à prix réduit :
+                </p>
+                <div className={styles.formuleHomeList}>
+                  <div className={styles.formuleHomeItem}>
+                    <span><strong>2 Margarita</strong></span>
+                    <span className={styles.formuleHomeDots} aria-hidden="true" />
+                    <span className={styles.formuleHomePrice}>15,00 €</span>
+                  </div>
+                  <div className={styles.formuleHomeItem}>
+                    <span><strong>2 Romana</strong></span>
+                    <span className={styles.formuleHomeDots} aria-hidden="true" />
+                    <span className={styles.formuleHomePrice}>16,50 €</span>
+                  </div>
+                  <div className={styles.formuleHomeItem}>
+                    <span><strong>Margarita + 1 au choix</strong></span>
+                    <span className={styles.formuleHomeDots} aria-hidden="true" />
+                    <span className={styles.formuleHomePrice}>19,00 €</span>
+                  </div>
+                  <div className={styles.formuleHomeItem}>
+                    <span><strong>Romana + 1 au choix</strong></span>
+                    <span className={styles.formuleHomeDots} aria-hidden="true" />
+                    <span className={styles.formuleHomePrice}>20,00 €</span>
+                  </div>
+                </div>
+                <div className={styles.formuleHomeAction}>
+                  <Button href="tel:0467853434" variant="primary">
+                    Commander au 04 67 85 34 34
+                  </Button>
+                </div>
+              </PaperCard>
+
+              <PaperCard tilt="right" className={`${styles.formuleHomeCard} ${styles.formuleHomeDrinkCard}`}>
+                <div className={styles.formuleHomeHeader}>
+                  <div className={styles.formuleHomeTitleRow}>
+                    <span className={styles.formuleHomeIcon} aria-hidden="true">🍾</span>
+                    <Typography variant="h3" className={styles.formuleHomeTitle}>Formule Boissons</Typography>
+                  </div>
+                  <span className={`${styles.formuleHomeBadge} ${styles.formuleHomeBadgeFree}`}>1 Bouteille OFFERTE</span>
+                </div>
+                <p className={styles.formuleHomeDesc}>
+                  Pour vos soirées entre amis ou en famille, la boisson est offerte :
+                </p>
+                <div className={styles.promoConditionsHome}>
+                  <div className={styles.promoConditionHomeItem}>
+                    <span className={styles.checkIcon} aria-hidden="true">✓</span>
+                    <span>Pour l&apos;achat de <strong>3 pizzas 26 Ø</strong></span>
+                  </div>
+                  <div className={styles.promoConditionHomeItem}>
+                    <span className={styles.checkIcon} aria-hidden="true">✓</span>
+                    <span>Pour l&apos;achat de <strong>4 pizzas 33 Ø</strong></span>
+                  </div>
+                  <div className={styles.promoConditionHomeItem}>
+                    <span className={styles.checkIcon} aria-hidden="true">✓</span>
+                    <span>Pour l&apos;achat de <strong>4 pizzas 40 Ø</strong></span>
+                  </div>
+                </div>
+                <div className={styles.rewardHomeBanner}>
+                  <span className={styles.rewardHomeTitle}>= 1 bouteille OFFERTE</span>
+                  <span className={styles.rewardHomeChoices}>
+                    Coca-Cola, Fanta orange/citron ou Vin (Rouge/Rosé)
+                  </span>
+                </div>
+                <p className={styles.formuleHomeNote}>*Hors formule</p>
+                <div className={styles.formuleHomeAction}>
+                  <Button href="/menu#formules" variant="secondary">
+                    Voir les Détails du Menu
+                  </Button>
+                </div>
+              </PaperCard>
+            </div>
+          </div>
+        </section>
+
         <section className={`${styles.section} ${styles.menuPreviewSection}`}>
           <div className={styles.container}>
             <Typography variant="h2" className={styles.centerText}>D&apos;autres Recettes à Découvrir</Typography>
